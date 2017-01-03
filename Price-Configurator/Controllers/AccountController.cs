@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Price_Configurator.Models;
+using Price_Configurator.ViewModels.Account;
 
 namespace Price_Configurator.Controllers
 {
