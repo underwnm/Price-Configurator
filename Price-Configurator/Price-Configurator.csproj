@@ -215,6 +215,10 @@
     <Compile Include="Migrations\201701041459473_Add ProductCategories table.Designer.cs">
       <DependentUpon>201701041459473_Add ProductCategories table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701041502101_Update EquipmentTypes to have nullables.cs" />
+    <Compile Include="Migrations\201701041502101_Update EquipmentTypes to have nullables.Designer.cs">
+      <DependentUpon>201701041502101_Update EquipmentTypes to have nullables.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -334,6 +338,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701041459473_Add ProductCategories table.resx">
       <DependentUpon>201701041459473_Add ProductCategories table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701041502101_Update EquipmentTypes to have nullables.resx">
+      <DependentUpon>201701041502101_Update EquipmentTypes to have nullables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

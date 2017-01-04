@@ -9,8 +9,7 @@ namespace Price_Configurator.Models
         [Required]
         public string Name { get; set; }
 
-        [Required]
-        public int EquipmentGroupId { get; set; }
+        public int? EquipmentGroupId { get; set; }
         public EquipmentGroup EquipmentGroup { get; set; }
     }
 }
