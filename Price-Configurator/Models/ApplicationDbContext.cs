@@ -15,6 +15,8 @@ namespace Price_Configurator.Models
         public DbSet<ProductModel> ProductModels { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductEquipment> ProductsEquipment { get; set; }
+        public DbSet<EquipmentRule> EquipmentRules { get; set; }
+        public DbSet<ProductEquipmentRule> ProductEquipmentRules { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
@@ -30,6 +32,56 @@ namespace Price_Configurator.Models
         {
             modelBuilder.Entity<ProductEquipment>()
                 .HasRequired(p => p.Product)
+                .WithMany()
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<ProductEquipment>()
+                .HasRequired(e => e.Equipment)
+                .WithMany()
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<ProductEquipmentRule>()
+                .HasRequired(p => p.Product)
+                .WithMany()
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<ProductEquipmentRule>()
+                .HasRequired(e => e.EquipmentRule)
+                .WithMany()
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<EquipmentRule>()
+                .HasRequired(p => p.ParentEquipment)
+                .WithMany()
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<EquipmentRule>()
+                .HasRequired(c => c.ChildEquipment)
+                .WithMany()
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Product>()
+                .HasRequired(m => m.ProductModel)
+                .WithMany()
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<ProductModel>()
+                .HasRequired(c => c.ProductCategory)
+                .WithMany()
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Equipment>()
+                .HasRequired(t => t.EquipmentType)
+                .WithMany()
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Equipment>()
+                .HasRequired(p => p.ListPrice)
+                .WithMany()
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<EquipmentType>()
+                .HasRequired(g => g.EquipmentGroup)
                 .WithMany()
                 .WillCascadeOnDelete(false);
 

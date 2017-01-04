@@ -231,6 +231,14 @@
     <Compile Include="Migrations\201701041528414_Add ProductsEquipment junction table.Designer.cs">
       <DependentUpon>201701041528414_Add ProductsEquipment junction table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701041601474_Add EquipmentRules and ProductEquipmentRules tables.cs" />
+    <Compile Include="Migrations\201701041601474_Add EquipmentRules and ProductEquipmentRules tables.Designer.cs">
+      <DependentUpon>201701041601474_Add EquipmentRules and ProductEquipmentRules tables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701041610535_Update cascade on delete to false.cs" />
+    <Compile Include="Migrations\201701041610535_Update cascade on delete to false.Designer.cs">
+      <DependentUpon>201701041610535_Update cascade on delete to false.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -241,6 +249,8 @@
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductCategory.cs" />
     <Compile Include="Models\ProductEquipment.cs" />
+    <Compile Include="Models\EquipmentRule.cs" />
+    <Compile Include="Models\ProductEquipmentRule.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -365,6 +375,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701041528414_Add ProductsEquipment junction table.resx">
       <DependentUpon>201701041528414_Add ProductsEquipment junction table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701041601474_Add EquipmentRules and ProductEquipmentRules tables.resx">
+      <DependentUpon>201701041601474_Add EquipmentRules and ProductEquipmentRules tables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701041610535_Update cascade on delete to false.resx">
+      <DependentUpon>201701041610535_Update cascade on delete to false.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
