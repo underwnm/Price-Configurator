@@ -11,6 +11,7 @@ namespace Price_Configurator.Models
         public DbSet<EquipmentType> EquipmentTypes { get; set; }
         public DbSet<ListPrice> ListPrices { get; set; }
         public DbSet<Equipment> Equipments { get; set; }
+        public DbSet<ProductCategory> ProductCategories { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

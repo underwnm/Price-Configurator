@@ -211,6 +211,10 @@
     <Compile Include="Migrations\201701041457002_Add Equipment table.Designer.cs">
       <DependentUpon>201701041457002_Add Equipment table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701041459473_Add ProductCategories table.cs" />
+    <Compile Include="Migrations\201701041459473_Add ProductCategories table.Designer.cs">
+      <DependentUpon>201701041459473_Add ProductCategories table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -218,6 +222,7 @@
     <Compile Include="Models\EquipmentGroup.cs" />
     <Compile Include="Models\EquipmentType.cs" />
     <Compile Include="Models\ListPrice.cs" />
+    <Compile Include="Models\ProductCategory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Account\ExternalLoginConfirmationViewModel.cs" />
@@ -326,6 +331,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701041457002_Add Equipment table.resx">
       <DependentUpon>201701041457002_Add Equipment table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701041459473_Add ProductCategories table.resx">
+      <DependentUpon>201701041459473_Add ProductCategories table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
