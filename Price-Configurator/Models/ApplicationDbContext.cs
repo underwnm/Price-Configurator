@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity;
 
 namespace Price_Configurator.Models
 {
@@ -6,6 +7,9 @@ namespace Price_Configurator.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<EquipmentGroup> EquipmentGroups { get; set; }
+        public DbSet<EquipmentType> EquipmentTypes { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

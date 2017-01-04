@@ -5,35 +5,30 @@ using System.Web.Mvc;
 
 namespace Price_Configurator.Controllers
 {
-    [Authorize]
-    public class UsersController : Controller
+    public class ProductController : Controller
     {
         private ApplicationDbContext _context;
 
-        public UsersController()
+        public ProductController()
         {
             _context = new ApplicationDbContext();
         }
-        // GET: Users
+
+        // GET: Product
         public ActionResult Index()
         {
             if (User.Identity.IsAuthenticated)
             {
-                var user = User.Identity;
-                ViewBag.Name = user.Name;
-
-                ViewBag.displayMenu = "No";
-
-                if (IsAdminUser())
+                if (!IsAdminUser())
                 {
-                    ViewBag.displayMenu = "Yes";
+                    return RedirectToAction("Index", "Home");
                 }
-                return View();
             }
             else
             {
-                ViewBag.name = "Not Logged In";
+                return RedirectToAction("Index", "Home");
             }
+
             return View();
         }
 
@@ -45,6 +40,5 @@ namespace Price_Configurator.Controllers
             var roles = userManager.GetRoles(user.GetUserId());
             return roles[0] == "Admin";
         }
-
     }
 }

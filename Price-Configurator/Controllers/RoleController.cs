@@ -38,8 +38,7 @@ namespace Price_Configurator.Controllers
         {
             if (!User.Identity.IsAuthenticated) return false;
             var user = User.Identity;
-            var context = new ApplicationDbContext();
-            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(_context));
             var roles = userManager.GetRoles(user.GetUserId());
             return roles[0] == "Admin";
         }

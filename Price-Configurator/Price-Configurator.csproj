@@ -182,8 +182,10 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\EquipmentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
@@ -193,9 +195,19 @@
     <Compile Include="Migrations\201701031339117_Initial model.Designer.cs">
       <DependentUpon>201701031339117_Initial model.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701041445008_Add EquipmentGroups table.cs" />
+    <Compile Include="Migrations\201701041445008_Add EquipmentGroups table.Designer.cs">
+      <DependentUpon>201701041445008_Add EquipmentGroups table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701041447278_Add EquipmentTypes table.cs" />
+    <Compile Include="Migrations\201701041447278_Add EquipmentTypes table.Designer.cs">
+      <DependentUpon>201701041447278_Add EquipmentTypes table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\EquipmentGroup.cs" />
+    <Compile Include="Models\EquipmentType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Account\ExternalLoginConfirmationViewModel.cs" />
@@ -207,6 +219,7 @@
     <Compile Include="ViewModels\Account\ResetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Account\SendCodeViewModel.cs" />
     <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
+    <Compile Include="ViewModels\ManageViewModel.cs" />
     <Compile Include="ViewModels\Manage\AddPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\Manage\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\ConfigureTwoFactorViewModel.cs" />
@@ -274,6 +287,8 @@
     <Content Include="Views\Role\Index.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Role\Create.cshtml" />
+    <None Include="Views\Equipment\Index.cshtml" />
+    <None Include="Views\Product\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -289,6 +304,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201701031339117_Initial model.resx">
       <DependentUpon>201701031339117_Initial model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701041445008_Add EquipmentGroups table.resx">
+      <DependentUpon>201701041445008_Add EquipmentGroups table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701041447278_Add EquipmentTypes table.resx">
+      <DependentUpon>201701041447278_Add EquipmentTypes table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

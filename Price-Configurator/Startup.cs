@@ -40,7 +40,7 @@ namespace Price_Configurator
 
                 if (checkUser.Succeeded)
                 {
-                    var resultsOne = userManager.AddToRole(user.Id, "Admin");
+                    userManager.AddToRole(user.Id, "Admin");
                 }
             }
 
