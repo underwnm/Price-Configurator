@@ -14,6 +14,7 @@ namespace Price_Configurator.Models
         public DbSet<ProductCategory> ProductCategories { get; set; }
         public DbSet<ProductModel> ProductModels { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<ProductEquipment> ProductsEquipment { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
@@ -23,6 +24,16 @@ namespace Price_Configurator.Models
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ProductEquipment>()
+                .HasRequired(p => p.Product)
+                .WithMany()
+                .WillCascadeOnDelete(false);
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

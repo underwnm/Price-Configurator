@@ -227,6 +227,10 @@
     <Compile Include="Migrations\201701041516450_Add Products table.Designer.cs">
       <DependentUpon>201701041516450_Add Products table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701041528414_Add ProductsEquipment junction table.cs" />
+    <Compile Include="Migrations\201701041528414_Add ProductsEquipment junction table.Designer.cs">
+      <DependentUpon>201701041528414_Add ProductsEquipment junction table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -236,6 +240,7 @@
     <Compile Include="Models\ListPrice.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductCategory.cs" />
+    <Compile Include="Models\ProductEquipment.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -357,6 +362,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701041516450_Add Products table.resx">
       <DependentUpon>201701041516450_Add Products table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701041528414_Add ProductsEquipment junction table.resx">
+      <DependentUpon>201701041528414_Add ProductsEquipment junction table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
