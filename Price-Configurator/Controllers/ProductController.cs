@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Price_Configurator.Models;
+using Price_Configurator.ViewModels;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace Price_Configurator.Controllers
@@ -28,8 +30,11 @@ namespace Price_Configurator.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-
-            return View();
+            var model = new ProductsViewModel
+            {
+                CurrentProducts = _context.Products.ToList(),
+            };
+            return View(model);
         }
 
         public bool IsAdminUser()

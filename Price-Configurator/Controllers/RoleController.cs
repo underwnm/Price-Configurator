@@ -48,7 +48,6 @@ namespace Price_Configurator.Controllers
             if (User.Identity.IsAuthenticated)
             {
 
-
                 if (!IsAdminUser())
                 {
                     return RedirectToAction("Index", "Home");
