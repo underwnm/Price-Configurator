@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 namespace Price_Configurator.ViewModels
 {
-    public class ProductsViewModel
+    public class EquipmentViewModel
     {
-        public IEnumerable<Product> CurrentProducts { get; set; }
+        public IEnumerable<Equipment> CurrentEquipment { get; set; }
     }
 }

@@ -30,7 +30,7 @@ namespace Price_Configurator.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-            var model = new ProductsViewModel
+            var model = new ProductViewModel
             {
                 CurrentProducts = _context.Products.ToList(),
             };
