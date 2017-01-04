@@ -203,11 +203,16 @@
     <Compile Include="Migrations\201701041447278_Add EquipmentTypes table.Designer.cs">
       <DependentUpon>201701041447278_Add EquipmentTypes table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701041450103_Add ListPrices table.cs" />
+    <Compile Include="Migrations\201701041450103_Add ListPrices table.Designer.cs">
+      <DependentUpon>201701041450103_Add ListPrices table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\EquipmentGroup.cs" />
     <Compile Include="Models\EquipmentType.cs" />
+    <Compile Include="Models\ListPrice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Account\ExternalLoginConfirmationViewModel.cs" />
@@ -310,6 +315,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701041447278_Add EquipmentTypes table.resx">
       <DependentUpon>201701041447278_Add EquipmentTypes table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701041450103_Add ListPrices table.resx">
+      <DependentUpon>201701041450103_Add ListPrices table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
