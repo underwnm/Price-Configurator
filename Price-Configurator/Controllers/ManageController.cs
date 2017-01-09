@@ -1,13 +1,13 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Price_Configurator.Models;
 using Price_Configurator.ViewModels.Manage;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Web;
+using System.Web.Mvc;
 
 namespace Price_Configurator.Controllers
 {
@@ -16,9 +16,11 @@ namespace Price_Configurator.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private readonly ApplicationDbContext _context;
 
         public ManageController()
         {
+            _context = new ApplicationDbContext();
         }
 
         public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
@@ -65,6 +67,18 @@ namespace Price_Configurator.Controllers
                 : "";
 
             var userId = User.Identity.GetUserId();
+            if (User.Identity.IsAuthenticated)
+            {
+                var user = User.Identity;
+                ViewBag.Name = user.Name;
+
+                ViewBag.displayMenu = "No";
+
+                if (IsAdminUser())
+                {
+                    ViewBag.displayMenu = "Yes";
+                }
+            }
             var model = new IndexViewModel
             {
                 HasPassword = HasPassword(),
@@ -74,6 +88,15 @@ namespace Price_Configurator.Controllers
                 BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
             };
             return View(model);
+        }
+
+        public bool IsAdminUser()
+        {
+            if (!User.Identity.IsAuthenticated) return false;
+            var user = User.Identity;
+            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(_context));
+            var roles = userManager.GetRoles(user.GetUserId());
+            return roles[0] == "Admin";
         }
 
         //

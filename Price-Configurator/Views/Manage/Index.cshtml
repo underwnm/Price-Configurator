@@ -12,15 +12,19 @@
     <dl class="dl-horizontal">
         <dt>Password:</dt>
         <dd>
-            [
-            @(Model.HasPassword ? Html.ActionLink("Change your password", "ChangePassword") : Html.ActionLink("Create", "SetPassword"))
-            ]
+            [ @(Model.HasPassword ? Html.ActionLink("Change your password", "ChangePassword") : Html.ActionLink("Create", "SetPassword")) ]
         </dd>
-        <dt>External Logins:</dt>
-        <dd>
-            @Model.Logins.Count [
-            @Html.ActionLink("Manage", "ManageLogins") ]
-        </dd>
+        @if (ViewBag.displayMenu == "Yes")
+        {
+            <dt>User Roles:</dt>
+            <dd>[ @Html.ActionLink("Manage Role", "Index", "Role") ]</dd>
+            <dt>Products:</dt>
+            <dd>[ @Html.ActionLink("Manage Product", "Index", "Product") ]</dd>
+            <dt>Equipment:</dt>
+            <dd>[ @Html.ActionLink("Manage Equipment", "Index", "Equipment") ]</dd>
+            <dt>Equipment Rules:</dt>
+            <dd>[ @Html.ActionLink("Manage Equipment Rules", "Index", "EquipmentRule") ]</dd>
+        }
 
     </dl>
 </div>
