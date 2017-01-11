@@ -520,6 +520,51 @@ namespace Price_Configurator.Controllers
             return View(model);
         }
 
+        public ActionResult AddEquipmentGroup()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+
+                if (!IsAdminUser())
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            var model = new EquipmentGroupViewModel();
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult AddEquipmentGroup(EquipmentGroupViewModel model)
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                if (!IsAdminUser())
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            var equipmentGroup = new EquipmentGroup
+            {
+                Description = model.Description
+
+            };
+            _context.EquipmentGroups.Add(equipmentGroup);
+            _context.SaveChanges();
+            return RedirectToAction("EquipmentGroups");
+        }
+
         public ActionResult EquipmentTypes()
         {
             if (User.Identity.IsAuthenticated)
