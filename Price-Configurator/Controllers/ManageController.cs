@@ -593,7 +593,7 @@ namespace Price_Configurator.Controllers
             }
             var model = new EquipmentTypeViewModel
             {
-                CurrentEquipmentTypes = _context.EquipmentTypes.ToList(),
+                EquipmentTypes = _context.EquipmentTypes.ToList(),
             };
             return View(model);
         }

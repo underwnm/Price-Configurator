@@ -6,13 +6,13 @@ namespace Price_Configurator.ViewModels
 {
     public class EquipmentTypeViewModel
     {
-        public IEnumerable<EquipmentType> CurrentEquipmentTypes { get; set; }
+        public IEnumerable<EquipmentType> EquipmentTypes { get; set; }
 
         [Required]
-        [Display(Name = "Name")]
+        [Display(Name = "Name*")]
         public string Name { get; set; }
 
-        [Display(Name = "Equipment Group")]
+        [Display(Name = "Group")]
         public int? EquipmentGroupId { get; set; }
         public IEnumerable<EquipmentGroup> EquipmentGroups { get; set; }
     }
