@@ -246,6 +246,54 @@ namespace Price_Configurator.Controllers
             return View(model);
         }
 
+        public ActionResult AddProductModel()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+
+                if (!IsAdminUser())
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            var model = new ProductModelViewModel
+            {
+                ProductCategories = _context.ProductCategories.ToList()
+            };
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult AddProductModel(ProductModelViewModel model)
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                if (!IsAdminUser())
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            var productModel = new ProductModel()
+            {
+                Name = model.Name,
+                ProductCategoryId = model.ProductCategoryId
+
+            };
+            _context.ProductModels.Add(productModel);
+            _context.SaveChanges();
+            return RedirectToAction("ProductModels");
+        }
+
         public ActionResult Products()
         {
             if (User.Identity.IsAuthenticated)

@@ -1,0 +1,46 @@
+﻿@model Price_Configurator.ViewModels.ProductModelViewModel
+@{
+    ViewBag.Title = "Add Product Model";
+}
+
+<h2>Product Model</h2>
+
+@using (Html.BeginForm("AddProductModel", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <h4>Add Product Model Form</h4>
+    <hr />
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Name,
+                new
+                {
+                    @class = "form-control",
+                    placeholder = "eg Apt, Suite, or Unit #"
+                })
+            @Html.ValidationMessageFor(m => m.Name)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ProductCategoryId, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.ProductCategoryId,
+                new SelectList(Model.ProductCategories, "Id", "Name"),
+                "",
+                new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.ProductCategoryId)
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Add Product Model" class="btn btn-default" />
+        </div>
+    </div>
+    <p>
+        @Html.ActionLink("Back to product category manager.", "ProductCategories", "Manage")
+    </p>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
