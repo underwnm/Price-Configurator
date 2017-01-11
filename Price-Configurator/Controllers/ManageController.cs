@@ -283,7 +283,7 @@ namespace Price_Configurator.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            var productModel = new ProductModel()
+            var productModel = new ProductModel
             {
                 Name = model.Name,
                 ProductCategoryId = model.ProductCategoryId
@@ -312,6 +312,54 @@ namespace Price_Configurator.Controllers
                 CurrentProducts = _context.Products.ToList(),
             };
             return View(model);
+        }
+
+        public ActionResult AddProduct()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+
+                if (!IsAdminUser())
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            var model = new ProductViewModel
+            {
+                ProductModels = _context.ProductModels.ToList()
+            };
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult AddProduct(ProductViewModel model)
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                if (!IsAdminUser())
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            var product = new Product
+            {
+                Name = model.Name,
+                ProductModelId = model.ProductModelId
+
+            };
+            _context.Products.Add(product);
+            _context.SaveChanges();
+            return RedirectToAction("Products");
         }
 
         public ActionResult ProductsEquipment()
