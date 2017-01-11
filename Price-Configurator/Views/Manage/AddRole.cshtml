@@ -3,7 +3,7 @@
     ViewBag.Title = "Add Role";
 }
 
-@using (Html.BeginForm("AddRole", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using (Html.BeginForm("AddRole", "Manage", FormMethod.Post, new {@class = "form-horizontal", role = "form"}))
 {
     @Html.AntiForgeryToken()
 
@@ -12,9 +12,9 @@
         <fieldset>
             <legend>Add Role</legend>
             <div class="form-group">
-                @Html.LabelFor(m => m.Name, new { @class = "col-lg-2 control-label" })
+                @Html.LabelFor(m => m.Name, new {@class = "col-lg-2 control-label"})
                 <div class="col-lg-10">
-                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                    @Html.TextBoxFor(m => m.Name, new {@class = "form-control"})
                     @Html.ValidationMessageFor(m => m.Name)
                 </div>
             </div>

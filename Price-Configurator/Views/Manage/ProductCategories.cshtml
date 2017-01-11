@@ -6,37 +6,33 @@
 <h2 class="text-center">Manage Product Categories</h2>
 
 <div class="span12">
-    <table class="table table-responsive">
-        <thead>
-            <tr>
-                <th>Create A New Product Category</th>
-                <th><a href="@Url.Action("AddProductCategory", "Manage")" class="btn btn-primary">Add</a></th>
-            </tr>
-        </thead>
-    </table>
-    <br />
+
     <table class="table table-striped table-hover ">
         <thead>
-            <tr>
-                <th>Category</th>
-                <th>Edit</th>
-                <th>Remove</th>
-            </tr>
+        <tr>
+            <th>Category</th>
+            <th>Edit</th>
+            <th>Remove</th>
+        </tr>
         </thead>
         <tbody>
-            @foreach (var role in Model.ProductCategories)
-            {
-                <tr>
-                    <td>@role.Name</td>
-                    <td><button class="btn-warning btn">Edit</button></td>
-                    <td><button class="btn-danger btn">Remove</button></td>
-                </tr>
-            }
+        @foreach (var role in Model.ProductCategories)
+        {
+            <tr>
+                <td>@role.Name</td>
+                <td>
+                    <button class="btn-warning btn">Edit</button>
+                </td>
+                <td>
+                    <button class="btn-danger btn">Remove</button>
+                </td>
+            </tr>
+        }
         </tbody>
     </table>
 
+    <div class="text-center">
+        <a href="@Url.Action("Index", "Manage")" class="btn btn-default">Back</a>
+        <a href="@Url.Action("AddProductCategory", "Manage")" class="btn btn-primary">Create</a>
+    </div>
 </div>
-
-<p>
-    @Html.ActionLink("Back to manager.", "Index", "Manage")
-</p>
