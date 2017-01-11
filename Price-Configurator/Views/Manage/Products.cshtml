@@ -10,9 +10,7 @@
         <thead>
         <tr>
             <th>Create A New Product</th>
-            <th>
-                <button class="btn-primary btn">@Html.ActionLink("Add", "AddProduct", "Manage")</button>
-            </th>
+            <th><a href="@Url.Action("AddProduct", "Manage")" class="btn btn-primary">Add</a></th>
         </tr>
         </thead>
     </table>

@@ -9,8 +9,8 @@
     <table class="table table-responsive">
         <thead>
             <tr>
-                <th>Add A New Product Model</th>
-                <th><button class="btn-primary btn">@Html.ActionLink("Add", "AddProductModel", "Manage")</button></th>
+                <th>Add A New Product Model</th>                
+                <th><a href="@Url.Action("AddProductModel", "Manage")" class="btn btn-primary">Add</a></th>
             </tr>
         </thead>
     </table>
@@ -29,7 +29,7 @@
             {
                 <tr>
                     <td>@role.Name</td>
-                    <td>@role.ProductCategoryId</td>
+                    <td>@role.ProductCategory.Name</td>
                     <td><button class="btn-warning btn">Edit</button></td>
                     <td><button class="btn-danger btn">Remove</button></td>
                 </tr>

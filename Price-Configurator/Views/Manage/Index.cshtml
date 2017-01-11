@@ -15,28 +15,40 @@
         </dd>
         @if (ViewBag.displayMenu == "Yes")
         {
+            <br />
+            <h4>Role Management</h4>
             <dt>Roles:</dt>
             <dd>[ @Html.ActionLink("Manage Roles", "Roles", "Manage") ]</dd>
-            <dt>User Roles:</dt>
+
+            <br />
+            <h4>User Management</h4>
+            <dt>Users:</dt>
             <dd>[ @Html.ActionLink("Manage User Roles", "UserRoles", "Manage") ]</dd>
-            <dt>Product Categories:</dt>
-            <dd>[ @Html.ActionLink("Manage Product Categories", "ProductCategories", "Manage") ]</dd>
-            <dt>Products Equipment:</dt>
-            <dd>[ @Html.ActionLink("Manage Products Equipment", "ProductsEquipment", "Manage") ]</dd>
-            <dt>Product Models:</dt>
-            <dd>[ @Html.ActionLink("Manage Product Models", "ProductModels", "Manage") ]</dd>
+
+            <br />
+            <h4>Product Management</h4>
             <dt>Products:</dt>
             <dd>[ @Html.ActionLink("Manage Product", "Products", "Manage") ]</dd>
-            <dt>Equipment Groups:</dt>
-            <dd>[ @Html.ActionLink("Manage Equipment Groups", "EquipmentGroups", "Manage") ]</dd>
-            <dt>Equipment Types:</dt>
-            <dd>[ @Html.ActionLink("Manage Equipment Types", "EquipmentTypes", "Manage") ]</dd>
+            <dt>Categories:</dt>
+            <dd>[ @Html.ActionLink("Manage Product Categories", "ProductCategories", "Manage") ]</dd>
+            <dt>Models:</dt>
+            <dd>[ @Html.ActionLink("Manage Product Models", "ProductModels", "Manage") ]</dd>
+            <dt>Rules:</dt>
+            <dd>[ @Html.ActionLink("Manage Product Equipment Rules", "ProductEquipmentRules", "Manage") ]</dd>
+            <dt>Equipment Options:</dt>
+            <dd>[ @Html.ActionLink("Manage Products Equipment Options", "ProductsEquipment", "Manage") ]</dd>
+
+            <br />
+            <h4>Equipment Management</h4>
             <dt>Equipment:</dt>
             <dd>[ @Html.ActionLink("Manage Equipment", "Equipment", "Manage") ]</dd>
-            <dt>Equipment Rules:</dt>
+            <dt>Groups:</dt>
+            <dd>[ @Html.ActionLink("Manage Equipment Groups", "EquipmentGroups", "Manage") ]</dd>
+            <dt>Types:</dt>
+            <dd>[ @Html.ActionLink("Manage Equipment Types", "EquipmentTypes", "Manage") ]</dd>
+            <dt>Rules:</dt>
             <dd>[ @Html.ActionLink("Manage Equipment Rules", "EquipmentRules", "Manage") ]</dd>
-            <dt>Product Rules:</dt>
-            <dd>[ @Html.ActionLink("Manage Product Equipment Rules", "ProductEquipmentRules", "Manage") ]</dd>
         }
     </dl>
+
 </div>

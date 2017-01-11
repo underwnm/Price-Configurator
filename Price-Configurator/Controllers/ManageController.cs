@@ -271,9 +271,10 @@ namespace Price_Configurator.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-            var model = new ProductModelViewModel()
+            var model = new ProductModelViewModel
             {
                 ProductModels = _context.ProductModels.ToList(),
+                ProductCategories = _context.ProductCategories.ToList()
             };
             return View(model);
         }
@@ -597,6 +598,7 @@ namespace Price_Configurator.Controllers
             };
             _context.EquipmentGroups.Add(equipmentGroup);
             _context.SaveChanges();
+
             return RedirectToAction("EquipmentGroups");
         }
 
@@ -660,7 +662,7 @@ namespace Price_Configurator.Controllers
             var equipmentType = new EquipmentType
             {
                 Name = model.Name,
-                EquipmentGroupId = model.EquipmentGroupId
+                EquipmentGroupId = model.EquipmentGroupId,
             };
 
             _context.EquipmentTypes.Add(equipmentType);

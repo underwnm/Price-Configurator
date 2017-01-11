@@ -3,52 +3,56 @@
     ViewBag.Title = "Add Equipment Rule";
 }
 
-<h2>Equipment Rule</h2>
-
-@using (Html.BeginForm("AddEquipmentRules", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using (Html.BeginForm("AddEquipmentRules", "Manage", FormMethod.Post, new {@class = "form-horizontal", role = "form"}))
 {
     @Html.AntiForgeryToken()
-    <h4>Add Equipment Rule Form</h4>
-    <hr />
-    <div class="form-group">
-        @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Name,
-                new
-                {
-                    @class = "form-control",
-                })
-            @Html.ValidationMessageFor(m => m.Name)
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.ParentEquipmentId, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(m => m.ParentEquipmentId,
-                new SelectList(Model.ParentEquipment, "Id", "Name"),
-                "",
-                new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.ParentEquipmentId)
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.ChildEquipmentId, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(m => m.ChildEquipmentId,
-                new SelectList(Model.ChildEquipment, "Id", "Name"),
-                "",
-                new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.ChildEquipmentId)
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Add Equipment Rule" class="btn btn-default" />
-        </div>
-    </div>
-    <p>
-        @Html.ActionLink("Back to equipment rule manager.", "EquipmentRules", "Manage")
-    </p>
+
+    <br/>
+    <form class="form-horizontal">
+        <fieldset>
+            <legend>Add Equipment Rule</legend>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Name, new {@class = "col-md-2 control-label"})
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Name,
+                        new
+                        {
+                            @class = "form-control",
+                        })
+                    @Html.ValidationMessageFor(m => m.Name)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.ParentEquipmentId, new {@class = "col-md-2 control-label"})
+                <div class="col-md-10">
+                    @Html.DropDownListFor(m => m.ParentEquipmentId,
+                        new SelectList(Model.ParentEquipment, "Id", "Name"),
+                        "",
+                        new {@class = "form-control"})
+                    @Html.ValidationMessageFor(m => m.ParentEquipmentId)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.ChildEquipmentId, new {@class = "col-md-2 control-label"})
+                <div class="col-md-10">
+                    @Html.DropDownListFor(m => m.ChildEquipmentId,
+                        new SelectList(Model.ChildEquipment, "Id", "Name"),
+                        "",
+                        new {@class = "form-control"})
+                    @Html.ValidationMessageFor(m => m.ChildEquipmentId)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2">
+                    <button type="reset" class="btn btn-default">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+    <br/>
+
+    <p>@Html.ActionLink("Back to Equipment Rules.", "EquipmentRules", "Manage")</p>
 }
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
