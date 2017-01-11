@@ -161,6 +161,26 @@ namespace Price_Configurator.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult ProductCategories()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                if (!IsAdminUser())
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            var model = new ProductCategoryViewModel
+            {
+                ProductCategories = _context.ProductCategories.ToList(),
+            };
+            return View(model);
+        }
+
         public ActionResult ProductModels()
         {
             if (User.Identity.IsAuthenticated)
@@ -177,6 +197,66 @@ namespace Price_Configurator.Controllers
             var model = new ProductModelViewModel()
             {
                 ProductModels = _context.ProductModels.ToList(),
+            };
+            return View(model);
+        }
+
+        public ActionResult Products()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                if (!IsAdminUser())
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            var model = new ProductViewModel
+            {
+                CurrentProducts = _context.Products.ToList(),
+            };
+            return View(model);
+        }
+
+        public ActionResult Equipment()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                if (!IsAdminUser())
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            var model = new EquipmentViewModel
+            {
+                CurrentEquipment = _context.Equipments.ToList(),
+            };
+            return View(model);
+        }
+
+        public ActionResult EquipmentRules()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                if (!IsAdminUser())
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            var model = new EquipmentRuleViewModel()
+            {
+                CurrentEquipmentRules = _context.EquipmentRules.ToList(),
             };
             return View(model);
         }

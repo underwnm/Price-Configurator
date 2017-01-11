@@ -1,4 +1,4 @@
-﻿@model Price_Configurator.ViewModels.EquipmentViewModel
+﻿@model Price_Configurator.ViewModels.EquipmentRuleViewModel
 @{
     ViewBag.Title = "";
 }
@@ -14,18 +14,19 @@
         <td>
             <table id="tbrole" style="width:100%; border:dotted 1px; background-color:gainsboro; padding-left:10px;">
 
-                @foreach (var equipment in Model.CurrentEquipment)
+                @foreach (var rule in Model.CurrentEquipmentRules)
                 {
                     <tr>
                         <td style="width:100%; border:dotted 1px;">
-                            @equipment.Name
+                            @rule.ParentEquipment.Name
+                            @rule.ChildEquipment.Name
                         </td>
                     </tr>}
             </table>
         </td>
         <td align="right" style="color:#FFFFFF;padding-right:10;">
 
-            <h3>   @Html.ActionLink("Click to Create New Equipment", "Create", "Product") </h3>
+            <h3>   @Html.ActionLink("Click to Create a New Rule", "AddEquipmentRule", "Manage") </h3>
         </td>
     </tr>
 </table>
