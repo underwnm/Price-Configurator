@@ -13,7 +13,6 @@
             <th>Model</th>
             <th>Edit</th>
             <th>Remove</th>
-            <th><a href="@Url.Action("AddProduct", "Manage")" class="btn btn-primary">Create</a></th>
         </tr>
         </thead>
         <tbody>
@@ -30,4 +29,7 @@
     </table>
 </div>
 
-<p>@Html.ActionLink("Back to manager.", "Index", "Manage")</p>
+<div class="text-center">
+    <a href="@Url.Action("Index", "Manage")" class="btn btn-default">Back</a>
+    <a href="@Url.Action("AddProduct", "Manage")" class="btn btn-primary">Create</a>
+</div>

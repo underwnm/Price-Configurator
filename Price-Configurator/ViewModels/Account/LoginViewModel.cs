@@ -5,7 +5,7 @@ namespace Price_Configurator.ViewModels.Account
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "UserName")]
+        [Display(Name = "Username")]
         public string UserName { get; set; }
 
         [Required]
