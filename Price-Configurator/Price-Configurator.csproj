@@ -271,6 +271,7 @@
     <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\ProductCategoryViewModel.cs" />
+    <Compile Include="ViewModels\ProductEquipmentRuleViewModel.cs" />
     <Compile Include="ViewModels\ProductEquipmentViewModel.cs" />
     <Compile Include="ViewModels\ProductModelViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
@@ -342,6 +343,7 @@
     <Content Include="Views\Manage\EquipmentGroups.cshtml" />
     <Content Include="Views\Manage\EquipmentTypes.cshtml" />
     <Content Include="Views\Manage\ProductsEquipment.cshtml" />
+    <Content Include="Views\Manage\ProductEquipmentRules.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
