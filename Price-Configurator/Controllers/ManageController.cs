@@ -525,7 +525,7 @@ namespace Price_Configurator.Controllers
             }
             var model = new EquipmentGroupViewModel()
             {
-                CurrentEquipmentGroups = _context.EquipmentGroups.ToList(),
+                EquipmentGroups = _context.EquipmentGroups.ToList(),
             };
             return View(model);
         }
@@ -545,7 +545,10 @@ namespace Price_Configurator.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            var model = new EquipmentGroupViewModel();
+            var model = new EquipmentGroupViewModel
+            {
+                EquipmentGroups = _context.EquipmentGroups.ToList()
+            };
 
             return View(model);
         }
