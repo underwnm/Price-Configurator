@@ -14,11 +14,11 @@
         <td>
             <table id="tbrole" style="width:100%; border:dotted 1px; background-color:gainsboro; padding-left:10px;">
 
-                @foreach (var item in Model.CurrentRoles)
+                @foreach (var role in Model.Roles)
                 {
                     <tr>
                         <td style="width:100%; border:dotted 1px;">
-                            @item.Name
+                            @role.Name
                         </td>
                     </tr>}
             </table>
@@ -26,7 +26,7 @@
         <td align="right" style="color:#FFFFFF;padding-right:10;">
 
 
-            <h3>   @Html.ActionLink("Click to Create New Role", "AddRole", "Manage") </h3>
+            <h3>   @Html.ActionLink("Click to Create", "AddRole", "Manage") </h3>
         </td>
     </tr>
 </table>

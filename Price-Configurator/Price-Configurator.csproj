@@ -238,6 +238,10 @@
     <Compile Include="Migrations\201701111641415_Allow null equipment type.Designer.cs">
       <DependentUpon>201701111641415_Allow null equipment type.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701111703083_Add name to equipment rule.cs" />
+    <Compile Include="Migrations\201701111703083_Add name to equipment rule.Designer.cs">
+      <DependentUpon>201701111703083_Add name to equipment rule.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -355,6 +359,7 @@
     <Content Include="Views\Manage\AddEquipmentGroup.cshtml" />
     <Content Include="Views\Manage\AddEquipmentType.cshtml" />
     <Content Include="Views\Manage\AddEquipment.cshtml" />
+    <Content Include="Views\Manage\AddEquipmentRules.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -406,6 +411,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701111641415_Allow null equipment type.resx">
       <DependentUpon>201701111641415_Allow null equipment type.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701111703083_Add name to equipment rule.resx">
+      <DependentUpon>201701111703083_Add name to equipment rule.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

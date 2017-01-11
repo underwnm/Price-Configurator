@@ -116,7 +116,7 @@ namespace Price_Configurator.Controllers
 
             var roles = new RoleViewModel
             {
-                CurrentRoles = _context.Roles.ToList()
+                Roles = _context.Roles.ToList()
             };
           
             return View(roles);
@@ -137,12 +137,16 @@ namespace Price_Configurator.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            var role = new IdentityRole();
-            return View(role);
+            var model = new RoleViewModel
+            {
+                Roles = _context.Roles.ToList()
+            };
+
+            return View(model);
         }
 
         [HttpPost]
-        public ActionResult AddRole(IdentityRole role)
+        public ActionResult AddRole(RoleViewModel model)
         {
             if (User.Identity.IsAuthenticated)
             {
@@ -155,6 +159,12 @@ namespace Price_Configurator.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
+
+            var role = new IdentityRole
+            {
+                Name = model.Name
+            };
+
             _context.Roles.Add(role);
             _context.SaveChanges();
             return RedirectToAction("Roles");
@@ -723,11 +733,61 @@ namespace Price_Configurator.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-            var model = new EquipmentRuleViewModel()
+            var model = new EquipmentRuleViewModel
             {
                 CurrentEquipmentRules = _context.EquipmentRules.ToList(),
             };
             return View(model);
+        }
+
+        public ActionResult AddEquipmentRules()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+
+                if (!IsAdminUser())
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            var model = new EquipmentRuleViewModel
+            {
+                ParentEquipment = _context.Equipments.ToList(),
+                ChildEquipment = _context.Equipments.ToList()
+            };
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult AddEquipmentRules(EquipmentRuleViewModel model)
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                if (!IsAdminUser())
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            var equipmentRule = new EquipmentRule()
+            {
+                Name = model.Name,
+                ParentEquipmentId = model.ParentEquipmentId,
+                ChildEquipmentId = model.ChildEquipmentId
+            };
+
+            _context.EquipmentRules.Add(equipmentRule);
+            _context.SaveChanges();
+            return RedirectToAction("EquipmentRules");
         }
 
         //

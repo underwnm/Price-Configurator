@@ -9,6 +9,9 @@ namespace Price_Configurator.Models
         public int Id { get; set; }
 
         [Required]
+        public string Name { get; set; }
+
+        [Required]
         [ForeignKey("ParentEquipment")]
         public int ParentEquipmentId { get; set; }
         public Equipment ParentEquipment { get; set; }
