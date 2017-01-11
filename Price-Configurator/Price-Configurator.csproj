@@ -234,6 +234,10 @@
     <Compile Include="Migrations\201701041610535_Update cascade on delete to false.Designer.cs">
       <DependentUpon>201701041610535_Update cascade on delete to false.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701111641415_Allow null equipment type.cs" />
+    <Compile Include="Migrations\201701111641415_Allow null equipment type.Designer.cs">
+      <DependentUpon>201701111641415_Allow null equipment type.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -349,6 +353,7 @@
     <Content Include="Views\Manage\AddProductEquipment.cshtml" />
     <Content Include="Views\Manage\AddProductEquipmentRule.cshtml" />
     <Content Include="Views\Manage\AddEquipmentGroup.cshtml" />
+    <Content Include="Views\Manage\AddEquipmentType.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -397,6 +402,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701041610535_Update cascade on delete to false.resx">
       <DependentUpon>201701041610535_Update cascade on delete to false.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701111641415_Allow null equipment type.resx">
+      <DependentUpon>201701111641415_Allow null equipment type.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

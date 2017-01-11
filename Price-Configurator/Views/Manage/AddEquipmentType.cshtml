@@ -1,0 +1,45 @@
+﻿@model Price_Configurator.ViewModels.EquipmentTypeViewModel
+@{
+    ViewBag.Title = "Add Equipment Type";
+}
+
+<h2>Equipment Type</h2>
+
+@using (Html.BeginForm("AddEquipmentType", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <h4>Add Equipment Type Form</h4>
+    <hr />
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Name,
+                new
+                {
+                    @class = "form-control",
+                })
+            @Html.ValidationMessageFor(m => m.Name)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.EquipmentGroupId, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.EquipmentGroupId,
+                new SelectList(Model.EquipmentGroups, "Id", "Name"),
+                "",
+                new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.EquipmentGroupId)
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Add Product" class="btn btn-default" />
+        </div>
+    </div>
+    <p>
+        @Html.ActionLink("Back to equipment type manager.", "EquipmentTypes", "Manage")
+    </p>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

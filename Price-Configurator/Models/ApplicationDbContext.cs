@@ -81,7 +81,7 @@ namespace Price_Configurator.Models
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<EquipmentType>()
-                .HasRequired(g => g.EquipmentGroup)
+                .HasOptional(g => g.EquipmentGroup)
                 .WithMany()
                 .WillCascadeOnDelete(false);
 
