@@ -451,6 +451,55 @@ namespace Price_Configurator.Controllers
             return View(model);
         }
 
+        public ActionResult AddProductEquipmentRule()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+
+                if (!IsAdminUser())
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            var model = new ProductEquipmentRuleViewModel
+            {
+                Products = _context.Products.ToList(),
+                EquipmentRules = _context.EquipmentRules.ToList()
+            };
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult AddProductEquipmentRule(ProductEquipmentRuleViewModel model)
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                if (!IsAdminUser())
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            var productEquipmentRule = new ProductEquipmentRule()
+            {
+                ProductId = model.ProductId,
+                EquipmentRuleId = model.EquipmentRuleId
+
+            };
+            _context.ProductEquipmentRules.Add(productEquipmentRule);
+            _context.SaveChanges();
+            return RedirectToAction("ProductEquipmentRules");
+        }
+
         public ActionResult EquipmentGroups()
         {
             if (User.Identity.IsAuthenticated)
