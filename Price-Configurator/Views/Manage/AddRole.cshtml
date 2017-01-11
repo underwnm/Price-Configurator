@@ -2,11 +2,12 @@
 @{
     ViewBag.Title = "Add User Role";
 }
-<br />
+
 @using (Html.BeginForm("AddRole", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
 
+    <br/>
     <form class="form-horizontal">
         <fieldset>
             <legend>Add User Role</legend>

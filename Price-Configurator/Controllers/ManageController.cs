@@ -319,7 +319,7 @@ namespace Price_Configurator.Controllers
             }
             var model = new ProductViewModel
             {
-                CurrentProducts = _context.Products.ToList(),
+                Products = _context.Products.ToList(),
             };
             return View(model);
         }

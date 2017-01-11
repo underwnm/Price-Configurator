@@ -6,7 +6,7 @@ namespace Price_Configurator.ViewModels
 {
     public class ProductViewModel
     {
-        public IEnumerable<Product> CurrentProducts { get; set; }
+        public IEnumerable<Product> Products { get; set; }
 
         [Required]
         [Display(Name = "Product Name*")]
