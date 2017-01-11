@@ -99,6 +99,7 @@ namespace Price_Configurator.Controllers
             return roles[0] == "Admin";
         }
 
+
         //
         // POST: /Manage/RemoveLogin
         [HttpPost]
