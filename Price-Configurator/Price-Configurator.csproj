@@ -258,7 +258,9 @@
     <Compile Include="ViewModels\Account\ResetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Account\SendCodeViewModel.cs" />
     <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
+    <Compile Include="ViewModels\EquipmentGroupViewModel.cs" />
     <Compile Include="ViewModels\EquipmentRuleViewModel.cs" />
+    <Compile Include="ViewModels\EquipmentTypeViewModel.cs" />
     <Compile Include="ViewModels\EquipmentViewModel.cs" />
     <Compile Include="ViewModels\Manage\AddPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\Manage\ChangePasswordViewModel.cs" />
@@ -336,6 +338,8 @@
     <Content Include="Views\Manage\Products.cshtml" />
     <Content Include="Views\Manage\Equipment.cshtml" />
     <Content Include="Views\Manage\EquipmentRules.cshtml" />
+    <Content Include="Views\Manage\EquipmentGroups.cshtml" />
+    <Content Include="Views\Manage\EquipmentTypes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

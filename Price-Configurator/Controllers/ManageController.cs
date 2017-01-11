@@ -221,6 +221,46 @@ namespace Price_Configurator.Controllers
             return View(model);
         }
 
+        public ActionResult EquipmentGroups()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                if (!IsAdminUser())
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            var model = new EquipmentGroupViewModel()
+            {
+                CurrentEquipmentGroups = _context.EquipmentGroups.ToList(),
+            };
+            return View(model);
+        }
+
+        public ActionResult EquipmentTypes()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                if (!IsAdminUser())
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            var model = new EquipmentTypeViewModel
+            {
+                CurrentEquipmentTypes = _context.EquipmentTypes.ToList(),
+            };
+            return View(model);
+        }
+
         public ActionResult Equipment()
         {
             if (User.Identity.IsAuthenticated)
