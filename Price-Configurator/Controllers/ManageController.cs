@@ -3,6 +3,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Price_Configurator.Models;
+using Price_Configurator.ViewModels;
 using Price_Configurator.ViewModels.Manage;
 using System.Linq;
 using System.Threading.Tasks;
@@ -99,6 +100,86 @@ namespace Price_Configurator.Controllers
             return roles[0] == "Admin";
         }
 
+        public ActionResult Roles()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                if (!IsAdminUser())
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            var roles = new RoleViewModel
+            {
+                CurrentRoles = _context.Roles.ToList()
+            };
+          
+            return View(roles);
+        }
+
+        public ActionResult AddRole()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+
+                if (!IsAdminUser())
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            var role = new IdentityRole();
+            return View(role);
+        }
+
+        [HttpPost]
+        public ActionResult AddRole(IdentityRole role)
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                if (!IsAdminUser())
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            _context.Roles.Add(role);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult ProductModels()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                if (!IsAdminUser())
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            var model = new ProductModelViewModel()
+            {
+                ProductModels = _context.ProductModels.ToList(),
+            };
+            return View(model);
+        }
 
         //
         // POST: /Manage/RemoveLogin
