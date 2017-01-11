@@ -412,6 +412,8 @@ namespace Price_Configurator.Controllers
             var model = new ProductEquipmentViewModel()
             {
                 CurrentProductEquipments = _context.ProductsEquipment.ToList(),
+                Products = _context.Products.ToList(),
+                Equipments = _context.Equipments.ToList()
             };
             return View(model);
         }
@@ -689,6 +691,8 @@ namespace Price_Configurator.Controllers
             var model = new EquipmentViewModel
             {
                 CurrentEquipment = _context.Equipments.ToList(),
+                EquipmentTypes = _context.EquipmentTypes.ToList(),
+                ListPrices = _context.ListPrices.ToList()
             };
             return View(model);
         }
@@ -729,18 +733,23 @@ namespace Price_Configurator.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-            var listPrice = new ListPrice
+            if (model.ListPrice != null)
             {
-                Price = model.ListPrice
-            };
+                var listPrice = new ListPrice
+                {
+                    Price = (decimal) model.ListPrice
+                };
 
-            _context.ListPrices.Add(listPrice);
+                _context.ListPrices.Add(listPrice);
+
+                model.ListPriceId = listPrice.Id;
+            }
 
             var equipment = new Equipment
             {
                 Name = model.Name,
                 Description = model.Description,
-                ListPriceId = listPrice.Id,
+                ListPriceId = model.ListPriceId,
                 EquipmentTypeId = model.EquipmentTypeId,
                 PictureUrl = model.PictureUrl
             };
@@ -766,6 +775,8 @@ namespace Price_Configurator.Controllers
             var model = new EquipmentRuleViewModel
             {
                 CurrentEquipmentRules = _context.EquipmentRules.ToList(),
+                ParentEquipment = _context.Equipments.ToList(),
+                ChildEquipment = _context.Equipments.ToList()
             };
             return View(model);
         }

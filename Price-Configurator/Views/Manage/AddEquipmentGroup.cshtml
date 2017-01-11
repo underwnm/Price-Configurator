@@ -3,32 +3,32 @@
     ViewBag.Title = "Add Equipment Group";
 }
 
-@using (Html.BeginForm("EquipmentGroups", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using (Html.BeginForm("AddEquipmentGroup", "Manage", FormMethod.Post, new {@class = "form-horizontal", role = "form"}))
 {
     @Html.AntiForgeryToken()
 
-    <br />
+    <br/>
     <form class="form-horizontal">
         <fieldset>
             <legend>Add Equipment Group</legend>
             <div class="form-group">
-                @Html.LabelFor(m => m.Description, new { @class = "col-lg-2 control-label" })
+                @Html.LabelFor(m => m.Description, new {@class = "col-lg-2 control-label"})
                 <div class="col-lg-10">
-                    @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+                    @Html.TextBoxFor(m => m.Description, new {@class = "form-control"})
                     @Html.ValidationMessageFor(m => m.Description)
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-lg-10 col-lg-offset-2">
-                    <button type="reset" class="btn btn-default">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="reset" class="btn btn-danger">Clear</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
                 </div>
             </div>
         </fieldset>
     </form>
-    <br />
+    <br/>
 
-    <p>@Html.ActionLink("Back to Equipment Groups.", "EquipmentGroups", "Manage")</p>
+    <a href="@Url.Action("EquipmentGroups", "Manage")" class="btn btn-default">Back</a>
 }
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
