@@ -343,6 +343,7 @@ namespace Price_Configurator.Controllers
             var model = new ProductViewModel
             {
                 Products = _context.Products.ToList(),
+                ProductModels = _context.ProductModels.ToList()
             };
             return View(model);
         }
@@ -480,6 +481,8 @@ namespace Price_Configurator.Controllers
             var model = new ProductEquipmentRuleViewModel()
             {
                 CurrentProductEquipmentRules = _context.ProductEquipmentRules.ToList(),
+                Products = _context.Products.ToList(),
+                EquipmentRules = _context.EquipmentRules.ToList()
             };
             return View(model);
         }

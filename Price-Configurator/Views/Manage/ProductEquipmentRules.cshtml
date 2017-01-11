@@ -6,15 +6,6 @@
 <h2 class="text-center">Manage Product Rules</h2>
 
 <div class="span12">
-    <table class="table table-responsive">
-        <thead>
-            <tr>
-                <th>Add A New Product Rule</th>                
-                <th><a href="@Url.Action("AddProductEquipmentRule", "Manage")" class="btn btn-primary">Add</a></th>
-            </tr>
-        </thead>
-    </table>
-    <br />
     <table class="table table-striped table-hover">
         <thead>
             <tr>
@@ -22,14 +13,15 @@
                 <th>Rule</th>
                 <th>Edit</th>
                 <th>Remove</th>
+                <th><a href="@Url.Action("AddProductEquipmentRule", "Manage")" class="btn btn-primary">Add</a></th>
             </tr>
         </thead>
         <tbody>
             @foreach (var role in Model.CurrentProductEquipmentRules)
             {
                 <tr>
-                    <td>@role.ProductId</td>
-                    <td>@role.EquipmentRuleId</td>
+                    <td>@role.Product.Name</td>
+                    <td>@role.EquipmentRule.Name</td>
                     <td><button class="btn-warning btn">Edit</button></td>
                     <td><button class="btn-danger btn">Remove</button></td>
                 </tr>

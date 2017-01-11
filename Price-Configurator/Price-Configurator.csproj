@@ -361,7 +361,6 @@
     <Content Include="Views\Manage\AddEquipmentType.cshtml" />
     <Content Include="Views\Manage\AddEquipment.cshtml" />
     <Content Include="Views\Manage\AddEquipmentRules.cshtml" />
-    <Content Include="Views\Manage\AddRoleToUser.cshtml" />
     <Content Include="Views\Manage\UserRoles.cshtml" />
   </ItemGroup>
   <ItemGroup>

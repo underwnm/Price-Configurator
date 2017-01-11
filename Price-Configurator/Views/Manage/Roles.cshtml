@@ -6,15 +6,6 @@
 <h2 class="text-center">Manage User Roles</h2>
 
 <div class="span12">
-    <table class="table table-responsive">
-        <thead>
-        <tr>
-            <th>Add A New Role</th>
-            <th><a href="@Url.Action("AddRole", "Manage")" class="btn btn-primary">Add</a></th>
-        </tr>
-        </thead>
-    </table>
-    <br/>
     <table class="table table-striped table-hover">
         <thead>
         <tr>
@@ -34,7 +25,9 @@
         }
         </tbody>
     </table>
+    <div class="text-center">
+        <a href="@Url.Action("Index", "Manage")" class="btn btn-default">Back</a>
+        <a href="@Url.Action("AddRole", "Manage")" class="btn btn-primary">Create</a>
+    </div>
 </div>
-
-<p>@Html.ActionLink("Back to manager.", "Index", "Manage")</p>
 
