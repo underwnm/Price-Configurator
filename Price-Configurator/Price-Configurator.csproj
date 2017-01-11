@@ -344,6 +344,7 @@
     <Content Include="Views\Manage\EquipmentTypes.cshtml" />
     <Content Include="Views\Manage\ProductsEquipment.cshtml" />
     <Content Include="Views\Manage\ProductEquipmentRules.cshtml" />
+    <Content Include="Views\Manage\AddProductCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
