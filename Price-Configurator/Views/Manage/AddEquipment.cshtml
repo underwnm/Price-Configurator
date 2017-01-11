@@ -4,74 +4,78 @@
     ViewBag.Title = "Add Equipment";
 }
 
-<h2>Equipment</h2>
 
 @using (Html.BeginForm("AddEquipment", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
-    <h4>Add Equipment Form</h4>
-    <hr />
-    <div class="form-group">
-        @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Name,
-                new
-                {
-                    @class = "form-control",
-                })
-            @Html.ValidationMessageFor(m => m.Name)
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Description, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Description,
-                new
-                {
-                    @class = "form-control",
-                })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.ListPrice, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.ListPrice, "",
-                new
-                {
-                    @class = "form-control",
-                    placeholder = "$10.00"
-                })
-            @Html.ValidationMessageFor(m => m.ListPrice)
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.EquipmentTypeId, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(m => m.EquipmentTypeId,
-                new SelectList(Model.EquipmentTypes, "Id", "Name"),
-                "",
-                new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.EquipmentTypeId)
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.PictureUrl, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.PictureUrl,
-                new
-                {
-                    @class = "form-control",
-                })
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Add Equipment" class="btn btn-default" />
-        </div>
-    </div>
-    <p>
-        @Html.ActionLink("Back to equipment manager.", "Equipment", "Manage")
-    </p>
+
+    <br />
+    <form class="form-horizontal">
+        <fieldset>
+            <legend>Add Equipment</legend>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Name,
+            new
+            {
+                @class = "form-control",
+            })
+                    @Html.ValidationMessageFor(m => m.Name)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Description, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Description,
+            new
+            {
+                @class = "form-control",
+            })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.ListPrice, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.ListPrice, "",
+            new
+            {
+                @class = "form-control"
+            })
+                    @Html.ValidationMessageFor(m => m.ListPrice)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.EquipmentTypeId, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(m => m.EquipmentTypeId,
+            new SelectList(Model.EquipmentTypes, "Id", "Name"),
+            "",
+            new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.EquipmentTypeId)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.PictureUrl, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.PictureUrl,
+            new
+            {
+                @class = "form-control",
+            })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2">
+                    <button type="reset" class="btn btn-default">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+    <br />
+
+    <p>@Html.ActionLink("Back to Equipment.", "Equipment", "Manage")</p>
 }
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

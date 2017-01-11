@@ -3,8 +3,6 @@
     ViewBag.Title = "Add Equipment Type";
 }
 
-<h2>Equipment Type</h2>
-
 @using (Html.BeginForm("AddEquipmentType", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
