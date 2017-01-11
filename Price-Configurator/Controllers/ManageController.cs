@@ -221,6 +221,26 @@ namespace Price_Configurator.Controllers
             return View(model);
         }
 
+        public ActionResult ProductsEquipment()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                if (!IsAdminUser())
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            var model = new ProductEquipmentViewModel()
+            {
+                CurrentProductEquipments = _context.ProductsEquipment.ToList(),
+            };
+            return View(model);
+        }
+
         public ActionResult EquipmentGroups()
         {
             if (User.Identity.IsAuthenticated)
