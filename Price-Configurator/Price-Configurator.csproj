@@ -332,7 +332,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <None Include="Views\EquipmentRule\Index.cshtml" />
     <Content Include="Views\Manage\ProductModels.cshtml" />
     <Content Include="Views\Manage\Roles.cshtml" />
     <Content Include="Views\Manage\AddRole.cshtml" />
@@ -348,7 +347,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Rule\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
