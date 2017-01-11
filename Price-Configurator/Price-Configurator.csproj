@@ -284,6 +284,7 @@
     <Compile Include="ViewModels\ProductModelViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="ViewModels\RoleViewModel.cs" />
+    <Compile Include="ViewModels\UserRoleViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -360,6 +361,8 @@
     <Content Include="Views\Manage\AddEquipmentType.cshtml" />
     <Content Include="Views\Manage\AddEquipment.cshtml" />
     <Content Include="Views\Manage\AddEquipmentRules.cshtml" />
+    <Content Include="Views\Manage\AddRoleToUser.cshtml" />
+    <Content Include="Views\Manage\UserRoles.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

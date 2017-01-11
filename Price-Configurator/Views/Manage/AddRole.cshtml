@@ -1,6 +1,6 @@
 ﻿@model Price_Configurator.ViewModels.RoleViewModel
 @{
-    ViewBag.Title = "Add User Role";
+    ViewBag.Title = "Add Role";
 }
 
 @using (Html.BeginForm("AddRole", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
@@ -10,7 +10,7 @@
     <br/>
     <form class="form-horizontal">
         <fieldset>
-            <legend>Add User Role</legend>
+            <legend>Add Role</legend>
             <div class="form-group">
                 @Html.LabelFor(m => m.Name, new { @class = "col-lg-2 control-label" })
                 <div class="col-lg-10">
@@ -28,7 +28,7 @@
     </form>
     <br/>
 
-    <p>@Html.ActionLink("Back to User Roles.", "Roles", "Manage")</p>
+    <p>@Html.ActionLink("Back to Roles.", "Roles", "Manage")</p>
 }
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

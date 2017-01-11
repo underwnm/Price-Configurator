@@ -100,6 +100,28 @@ namespace Price_Configurator.Controllers
             return roles[0] == "Admin";
         }
 
+        public ActionResult UserRoles()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                if (!IsAdminUser())
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            var roles = new UserRoleViewModel()
+            {
+                ApplicationUsers = _context.Users.ToList()
+            };
+
+            return View(roles);
+        }
+
         public ActionResult Roles()
         {
             if (User.Identity.IsAuthenticated)

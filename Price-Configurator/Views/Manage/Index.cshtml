@@ -15,10 +15,14 @@
         </dd>
         @if (ViewBag.displayMenu == "Yes")
         {
+            <dt>Roles:</dt>
+            <dd>[ @Html.ActionLink("Manage Roles", "Roles", "Manage") ]</dd>
             <dt>User Roles:</dt>
-            <dd>[ @Html.ActionLink("Manage User Roles", "Roles", "Manage") ]</dd>
+            <dd>[ @Html.ActionLink("Manage User Roles", "UserRoles", "Manage") ]</dd>
             <dt>Product Categories:</dt>
             <dd>[ @Html.ActionLink("Manage Product Categories", "ProductCategories", "Manage") ]</dd>
+            <dt>Products Equipment:</dt>
+            <dd>[ @Html.ActionLink("Manage Products Equipment", "ProductsEquipment", "Manage") ]</dd>
             <dt>Product Models:</dt>
             <dd>[ @Html.ActionLink("Manage Product Models", "ProductModels", "Manage") ]</dd>
             <dt>Products:</dt>
@@ -29,8 +33,6 @@
             <dd>[ @Html.ActionLink("Manage Equipment Types", "EquipmentTypes", "Manage") ]</dd>
             <dt>Equipment:</dt>
             <dd>[ @Html.ActionLink("Manage Equipment", "Equipment", "Manage") ]</dd>
-            <dt>Products Equipment:</dt>
-            <dd>[ @Html.ActionLink("Manage Products Equipment", "ProductsEquipment", "Manage") ]</dd>
             <dt>Equipment Rules:</dt>
             <dd>[ @Html.ActionLink("Manage Equipment Rules", "EquipmentRules", "Manage") ]</dd>
             <dt>Product Rules:</dt>
