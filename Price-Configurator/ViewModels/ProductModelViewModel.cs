@@ -9,11 +9,11 @@ namespace Price_Configurator.ViewModels
         public IEnumerable<ProductModel> ProductModels { get; set; }
 
         [Required]
-        [Display(Name = "Model Name*")]
+        [Display(Name = "Model*")]
         public string Name { get; set; }
 
         [Required]
-        [Display(Name = "Product Category*")]
+        [Display(Name = "Category*")]
         public int ProductCategoryId { get; set; }
         public IEnumerable<ProductCategory> ProductCategories { get; set; }
     }
