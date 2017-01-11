@@ -30,15 +30,16 @@
             </div>
             <div class="form-group">
                 <div class="col-lg-10 col-lg-offset-2">
-                    <button type="reset" class="btn btn-default">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="reset" class="btn btn-danger">Clear</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
                 </div>
             </div>
         </fieldset>
     </form>
     <br/>
 
-    <p>@Html.ActionLink("Back to Product Models.", "ProductModels", "Manage")</p>
+    <a href="@Url.Action("ProductCategories", "Manage")" class="btn btn-default">Back</a>
+
 }
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
