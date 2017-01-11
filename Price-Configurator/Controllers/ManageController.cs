@@ -155,10 +155,9 @@ namespace Price_Configurator.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-
             _context.Roles.Add(role);
             _context.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Roles");
         }
 
         public ActionResult ProductCategories()
