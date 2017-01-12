@@ -945,8 +945,61 @@ namespace Price_Configurator.Controllers
             var model = new EquipmentTypeViewModel
             {
                 EquipmentTypes = _context.EquipmentTypes.ToList(),
+                EquipmentGroups = _context.EquipmentGroups.ToList()
             };
             return View(model);
+        }
+
+        public ActionResult DeleteEquipmentType(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var equipmentType = _context.EquipmentTypes.Find(id);
+            if (equipmentType == null)
+            {
+                return HttpNotFound();
+            }
+            _context.EquipmentTypes.Remove(equipmentType);
+            _context.SaveChanges();
+            return RedirectToAction("EquipmentTypes");
+        }
+
+        public ActionResult EditEquipmentType(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var equipmentType = _context.EquipmentTypes.Find(id);
+            if (equipmentType == null)
+            {
+                return HttpNotFound();
+            }
+            PopulateEquipmentTypesDropDownList(equipmentType.EquipmentGroupId);
+            return View(equipmentType);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditEquipmentType([Bind(Include = "Id,Name,EquipmentGroupId,EquipmentGroup")] EquipmentType equipmentType)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Entry(equipmentType).State = EntityState.Modified;
+                _context.SaveChanges();
+                return RedirectToAction("EquipmentTypes");
+            }
+            return View(equipmentType);
+        }
+
+        private void PopulateEquipmentTypesDropDownList(object selectedProducts = null)
+        {
+            var query = from d in _context.EquipmentGroups
+                        orderby d.Description
+                        select d;
+            ViewBag.EquipmentGroupId = new SelectList(query, "Id", "Description", selectedProducts);
         }
 
         public ActionResult AddEquipmentType()
