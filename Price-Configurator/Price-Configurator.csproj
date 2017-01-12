@@ -362,6 +362,7 @@
     <Content Include="Views\Manage\AddEquipment.cshtml" />
     <Content Include="Views\Manage\AddEquipmentRules.cshtml" />
     <Content Include="Views\Manage\UserRoles.cshtml" />
+    <Content Include="Views\Manage\EditRole.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
