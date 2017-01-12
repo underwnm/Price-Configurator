@@ -1,0 +1,46 @@
+﻿
+@model Price_Configurator.ViewModels.DisplayProductViewModel
+@{
+    ViewBag.Title = "Select Product";
+}
+
+<h3 class="text-center">Select A Product</h3>
+<br/>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container">
+        <div class="span12">
+            <ul id="product-container">
+                @foreach (var product in Model.Products)
+                {
+                    <li class="products col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="product-img">
+                            <img style="height: 400px" src="@product.PictureUrl" />
+                        </div>
+                        <div class="product-info">
+                            <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                                <div class="btn-group" role="group">
+                                    <button type="submit" class="product-button btn btn-primary">Select</button>
+                                </div>
+                            </div>
+                            <div class="product-title text-center">
+                                <h3 class="product-name">@product.Name</h3>
+                                <h4>Base Price: $@product.ListPrice</h4>
+                            </div>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

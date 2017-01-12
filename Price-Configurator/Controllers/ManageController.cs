@@ -554,7 +554,7 @@ namespace Price_Configurator.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditProduct([Bind(Include = "Id,Name,ProductModelId,ProductModel,ListPrice")] Product product)
+        public ActionResult EditProduct([Bind(Include = "Id,Name,ProductModelId,ProductModel,ListPrice,PictureUrl")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -613,7 +613,8 @@ namespace Price_Configurator.Controllers
             {
                 Name = model.Name,
                 ProductModelId = model.ProductModelId,
-                ListPrice = model.ListPrice
+                ListPrice = model.ListPrice,
+                PictureUrl = model.PictureUrl
             };
             _context.Products.Add(product);
             _context.SaveChanges();

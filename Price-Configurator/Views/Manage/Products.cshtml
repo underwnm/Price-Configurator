@@ -12,19 +12,21 @@
             <th>Product</th>
             <th>Model</th>
             <th>List Price</th>
+            <th>PicutreUrl</th>
             <th></th>
         </tr>
         </thead>
         <tbody>
-        @foreach (var role in Model.Products)
+        @foreach (var product in Model.Products)
         {
             <tr>
-                <td>@role.Name</td>
-                <td>@role.ProductModel.Name</td>
-                <td>$@role.ListPrice</td>
+                <td>@product.Name</td>
+                <td>@product.ProductModel.Name</td>
+                <td>$@product.ListPrice</td>
+                <td><img style="width: 50px; height: 50px;"src="@product.PictureUrl"/></td>
                 <td class="btn-group pull-right">
-                    <a href="@Url.Action("EditProduct", "Manage", new { id = role.Id })" class="btn btn-warning">Edit</a>
-                    <a href="@Url.Action("DeleteProduct", "Manage", new { id = role.Id })" class="btn btn-danger">Delete</a>
+                    <a href="@Url.Action("EditProduct", "Manage", new { id = product.Id })" class="btn btn-warning">Edit</a>
+                    <a href="@Url.Action("DeleteProduct", "Manage", new { id = product.Id })" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
         }

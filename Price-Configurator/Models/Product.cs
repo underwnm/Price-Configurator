@@ -15,5 +15,7 @@ namespace Price_Configurator.Models
 
         [Required]
         public decimal ListPrice { get; set; }
+
+        public string PictureUrl { get; set; }
     }
 }

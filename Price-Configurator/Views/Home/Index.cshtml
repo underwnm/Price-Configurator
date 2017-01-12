@@ -29,8 +29,8 @@
                                 {
                                     foreach (var modelItem in modelList)
                                     {
-                                        <li>@Html.ActionLink(modelItem.Name, "Index", "Manage", routeValues: null, htmlAttributes: new { title = modelItem.Name })</li>
-                                       }
+                                        <li>@Html.ActionLink(@modelItem.Name, "Index", "DisplayProduct", routeValues: new { id = modelItem.Id}, htmlAttributes: new { title = "Products" })</li>
+                                    }
                                 }
                             }
                         </ul>

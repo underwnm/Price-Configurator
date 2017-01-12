@@ -183,6 +183,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\DisplayProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -246,6 +247,10 @@
     <Compile Include="Migrations\201701120408114_Remove ListPrice table.Designer.cs">
       <DependentUpon>201701120408114_Remove ListPrice table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701121602384_Product picture.cs" />
+    <Compile Include="Migrations\201701121602384_Product picture.Designer.cs">
+      <DependentUpon>201701121602384_Product picture.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -272,6 +277,7 @@
     <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
     <Compile Include="ViewModels\ChangeEmailViewModel.cs" />
     <Compile Include="ViewModels\ChangePhoneNumberViewModel.cs" />
+    <Compile Include="ViewModels\DisplayProductViewModel.cs" />
     <Compile Include="ViewModels\EquipmentGroupViewModel.cs" />
     <Compile Include="ViewModels\EquipmentRuleViewModel.cs" />
     <Compile Include="ViewModels\EquipmentTypeViewModel.cs" />
@@ -379,10 +385,12 @@
     <Content Include="Views\Manage\ChangePhoneNumber.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
+    <Content Include="Views\DisplayProduct\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\NavBar\" />
+    <Folder Include="Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -437,6 +445,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701120408114_Remove ListPrice table.resx">
       <DependentUpon>201701120408114_Remove ListPrice table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701121602384_Product picture.resx">
+      <DependentUpon>201701121602384_Product picture.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
