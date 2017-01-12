@@ -1,0 +1,43 @@
+﻿@model Price_Configurator.Models.ProductEquipment
+@{
+    ViewBag.Title = "Edit Product Equipment";
+}
+
+<h3>Edit Product Equipment</h3>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.EquipmentId)
+        @Html.HiddenFor(model => model.ProductId)
+        <div class="form-group">
+            <label class="control-label col-md-2">Product</label>
+            <div class="col-md-10">
+                @Html.DropDownList("ProductId", null, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ProductId)
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Equipment</label>
+            <div class="col-md-10">
+                @Html.DropDownList("EquipmentId", null, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.EquipmentId)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<a href="@Url.Action("ProductsEquipment", "Manage")" class="btn btn-default">Back</a>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

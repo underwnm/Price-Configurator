@@ -21,8 +21,8 @@
                 <td>@role.Product.Name</td>
                 <td>@role.Equipment.Name</td>
                 <td class="btn-group pull-right">
-                    <a href="#" class="btn btn-warning">Edit</a>
-                    <a href="#" class="btn btn-danger">Remove</a>
+                    <a href="@Url.Action("EditProductEquipment", "Manage", new { equipmentId = role.EquipmentId, productId = role.ProductId })" class="btn btn-warning">Edit</a>
+                    <a href="@Url.Action("DeleteProductEquipment", "Manage", new { equipmentId = role.EquipmentId, productId = role.ProductId })" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
         }

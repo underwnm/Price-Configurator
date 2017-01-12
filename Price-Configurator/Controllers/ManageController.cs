@@ -642,6 +642,67 @@ namespace Price_Configurator.Controllers
             return View(model);
         }
 
+        public ActionResult DeleteProductEquipment(int? productId, int? equipmentId)
+        {
+            if (equipmentId == null || productId == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var productsEquipment = _context.ProductsEquipment.Find(productId, equipmentId);
+            if (productsEquipment == null)
+            {
+                return HttpNotFound();
+            }
+            _context.ProductsEquipment.Remove(productsEquipment);
+            _context.SaveChanges();
+            return RedirectToAction("ProductsEquipment");
+        }
+
+        public ActionResult EditProductEquipment(int? productId, int? equipmentId)
+        {
+            if (equipmentId == null || productId == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var productsEquipment = _context.ProductsEquipment.Find(productId, equipmentId);
+            if (productsEquipment == null)
+            {
+                return HttpNotFound();
+            }
+            PopulateProductsFromDropDownList(productsEquipment.ProductId);
+            PopulateEquipmentFromDropDownList(productsEquipment.EquipmentId);
+            return View(productsEquipment);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditProductEquipment([Bind(Include = "ProductId, Product, EquipmentId, Equipment")] ProductEquipment productEquipment)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Entry(productEquipment).State = EntityState.Modified;
+                _context.SaveChanges();
+                return RedirectToAction("ProductsEquipment");
+            }
+            return View(productEquipment);
+        }
+
+        private void PopulateProductsFromDropDownList(object selected = null)
+        {
+            var query = from d in _context.ProductsEquipment
+                        orderby d.Product
+                        select d;
+            ViewBag.ProductId = new SelectList(query, "Id", "Name", selected);
+        }
+
+        private void PopulateEquipmentFromDropDownList(object selected = null)
+        {
+            var query = from d in _context.ProductsEquipment
+                        orderby d.Equipment
+                        select d;
+            ViewBag.EquipmentId = new SelectList(query, "Id", "Name", selected);
+        }
+
         public ActionResult AddProductEquipment()
         {
             if (User.Identity.IsAuthenticated)
