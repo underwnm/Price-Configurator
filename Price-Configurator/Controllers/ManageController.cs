@@ -839,6 +839,49 @@ namespace Price_Configurator.Controllers
             return View(model);
         }
 
+        public ActionResult DeleteEquipmentGroup(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var group = _context.EquipmentGroups.Find(id);
+            if (group == null)
+            {
+                return HttpNotFound();
+            }
+            _context.EquipmentGroups.Remove(group);
+            _context.SaveChanges();
+            return RedirectToAction("EquipmentGroups");
+        }
+
+        public ActionResult EditEquipmentGroup(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var group = _context.EquipmentGroups.Find(id);
+            if (group == null)
+            {
+                return HttpNotFound();
+            }
+            return View(group);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditEquipmentGroup([Bind(Include = "Id,Description")] EquipmentGroup equipmentGroup)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Entry(equipmentGroup).State = EntityState.Modified;
+                _context.SaveChanges();
+                return RedirectToAction("EquipmentGroups");
+            }
+            return View(equipmentGroup);
+        }
+
         public ActionResult AddEquipmentGroup()
         {
             if (User.Identity.IsAuthenticated)

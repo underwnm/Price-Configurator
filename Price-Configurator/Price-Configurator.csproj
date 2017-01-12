@@ -368,6 +368,7 @@
     <Content Include="Views\Manage\EditProductModel.cshtml" />
     <Content Include="Views\Manage\EditProduct.cshtml" />
     <Content Include="Views\Manage\EditProductEquipment.cshtml" />
+    <Content Include="Views\Manage\EditEquipmentGroup.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
