@@ -294,6 +294,49 @@ namespace Price_Configurator.Controllers
             return View(model);
         }
 
+        public ActionResult DeleteProductCategory(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var category = _context.ProductCategories.Find(id);
+            if (category == null)
+            {
+                return HttpNotFound();
+            }
+            _context.ProductCategories.Remove(category);
+            _context.SaveChanges();
+            return RedirectToAction("ProductCategories");
+        }
+
+        public ActionResult EditProductCategory(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var category = _context.ProductCategories.Find(id);
+            if (category == null)
+            {
+                return HttpNotFound();
+            }
+            return View(category);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditProductCategory([Bind(Include = "Id,Name")] ProductCategory productCategory)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Entry(productCategory).State = EntityState.Modified;
+                _context.SaveChanges();
+                return RedirectToAction("ProductCategories");
+            }
+            return View(productCategory);
+        }
+
         public ActionResult AddProductCategory()
         {
             if (User.Identity.IsAuthenticated)

@@ -364,6 +364,7 @@
     <Content Include="Views\Manage\Users.cshtml" />
     <Content Include="Views\Manage\EditRole.cshtml" />
     <Content Include="Views\Manage\EditUser.cshtml" />
+    <Content Include="Views\Manage\EditProductCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

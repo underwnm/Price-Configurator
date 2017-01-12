@@ -20,8 +20,8 @@
             <tr>
                 <td>@role.Name</td>
                 <td class="btn-group pull-right">
-                    <a href="#" class="btn btn-warning">Edit</a>
-                    <a href="#" class="btn btn-danger">Remove</a>
+                    <a href="@Url.Action("EditProductCategory", "Manage", new { id = role.Id })" class="btn btn-warning">Edit</a>
+                    <a href="@Url.Action("DeleteProductCategory", "Manage", new { id = role.Id })" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
         }
