@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Price_Configurator.ViewModels
 {
-    public class UserRoleViewModel
+    public class UserViewModel
     {
         public IEnumerable<ApplicationUser> ApplicationUsers { get; set; }
 

@@ -96,7 +96,7 @@ namespace Price_Configurator.Controllers
             return roles[0] == "Admin";
         }
 
-        public ActionResult UserRoles()
+        public ActionResult Users()
         {
             if (User.Identity.IsAuthenticated)
             {
@@ -110,12 +110,55 @@ namespace Price_Configurator.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            var roles = new UserRoleViewModel
+            var roles = new UserViewModel
             {
                 ApplicationUsers = _context.Users.ToList(),
             };
 
             return View(roles);
+        }
+
+        public ActionResult DeleteUser(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var user = _context.Users.Find(id);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+            _context.Users.Remove(user);
+            _context.SaveChanges();
+            return RedirectToAction("Users");
+        }
+
+        public ActionResult EditUser(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var role = _context.Users.Find(id);
+            if (role == null)
+            {
+                return HttpNotFound();
+            }
+            return View(role);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditUser([Bind(Include = "Id,Username,PhoneNumber,Email")] ApplicationUser user)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Entry(user).State = EntityState.Modified;
+                _context.SaveChanges();
+                return RedirectToAction("Users");
+            }
+            return View(user);
         }
 
         public ActionResult Roles()

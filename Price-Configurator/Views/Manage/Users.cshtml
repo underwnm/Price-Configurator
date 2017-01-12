@@ -1,6 +1,6 @@
-﻿@model Price_Configurator.ViewModels.UserRoleViewModel
+﻿@model Price_Configurator.ViewModels.UserViewModel
 @{
-    ViewBag.Title = "UserRoles";
+    ViewBag.Title = "Users";
 }
 
 <h2 class="text-center">Manage User Roles</h2>
@@ -25,8 +25,8 @@
                 <td>@role.PhoneNumber</td>
                 <td>Admin</td>
                 <td class="btn-group pull-right">
-                    <a href="#" class="btn btn-warning">Edit</a>
-                    <a href="#" class="btn btn-danger">Remove</a>
+                    <a href="@Url.Action("EditUser", "Manage", new { id = role.Id })" class="btn btn-warning">Edit</a>
+                    <a href="@Url.Action("DeleteUser", "Manage", new { id = role.Id })" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
         }

@@ -49,7 +49,7 @@
                 <div class="form-group">
                     @Html.Label("User Role*", new { @class = "col-md-2 control-label" })
                     <div class="col-md-10">
-                        @Html.DropDownList("UserRoles", (SelectList)ViewBag.Name, " ", new { @class = "form-control" })
+                        @Html.DropDownList("Users", (SelectList)ViewBag.Name, " ", new { @class = "form-control" })
                         @Html.ValidationMessageFor(m => m.UserRoles)
                     </div>
                 </div>
@@ -63,7 +63,7 @@
         </form>
         <br />
 
-        <a href="@Url.Action("UserRoles", "Manage")" class="btn btn-default">Back</a>
+        <a href="@Url.Action("Users", "Manage")" class="btn btn-default">Back</a>
 }
 
 @section Scripts {
