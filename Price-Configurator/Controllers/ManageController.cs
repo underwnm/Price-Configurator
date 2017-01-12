@@ -215,8 +215,7 @@ namespace Price_Configurator.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditRole([Bind(Include =
-                                          "Id,Name")] IdentityRole role)
+        public ActionResult EditRole([Bind(Include = "Id,Name")] IdentityRole role)
         {
             if (ModelState.IsValid)
             {
@@ -1389,6 +1388,36 @@ namespace Price_Configurator.Controllers
                 await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
             }
             return RedirectToAction("Index", new {Message = ManageMessageId.RemovePhoneSuccess});
+        }
+
+        public ActionResult ChangeEmail()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> ChangeEmail(ChangeEmailViewModel model)
+        {
+            var userId = User.Identity.GetUserId();
+            if (!ModelState.IsValid) return View();
+            var result = await UserManager.SetEmailAsync(userId, model.Email);
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult ChangePhoneNumber()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> ChangePhoneNumber(ChangePhoneNumberViewModel model)
+        {
+            var userId = User.Identity.GetUserId();
+            if (!ModelState.IsValid) return View();
+            var result = await UserManager.SetPhoneNumberAsync(userId, model.PhoneNumber);
+            return RedirectToAction("Index");
         }
 
         //

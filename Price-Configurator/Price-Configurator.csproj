@@ -270,6 +270,8 @@
     <Compile Include="ViewModels\Account\ResetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Account\SendCodeViewModel.cs" />
     <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
+    <Compile Include="ViewModels\ChangeEmailViewModel.cs" />
+    <Compile Include="ViewModels\ChangePhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\EquipmentGroupViewModel.cs" />
     <Compile Include="ViewModels\EquipmentRuleViewModel.cs" />
     <Compile Include="ViewModels\EquipmentTypeViewModel.cs" />
@@ -375,6 +377,8 @@
     <Content Include="Views\Manage\EditEquipmentGroup.cshtml" />
     <Content Include="Views\Manage\EditEquipmentType.cshtml" />
     <Content Include="Views\Manage\EditEquipment.cshtml" />
+    <Content Include="Views\Manage\ChangeEmail.cshtml" />
+    <Content Include="Views\Manage\ChangePhoneNumber.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
