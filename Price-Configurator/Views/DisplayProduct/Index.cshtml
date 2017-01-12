@@ -6,38 +6,33 @@
 
 <h3 class="text-center">Select A Product</h3>
 <br/>
+@Html.AntiForgeryToken()
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-
-    <div class="container">
-        <div class="span12">
-            <ul id="product-container">
-                @foreach (var product in Model.Products)
-                {
-                    <li class="products col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                        <div class="product-img">
-                            <img style="height: 400px" src="@product.PictureUrl" />
-                        </div>
-                        <div class="product-info">
-                            <div class="btn-group btn-group-justified" role="group" aria-label="...">
-                                <div class="btn-group" role="group">
-                                    <button type="submit" class="product-button btn btn-primary">Select</button>
-                                </div>
-                            </div>
-                            <div class="product-title text-center">
-                                <h3 class="product-name">@product.Name</h3>
-                                <h4>Base Price: $@product.ListPrice</h4>
+<div class="container">
+    <div class="span12">
+        <ul id="product-container">
+            @foreach (var product in Model.Products)
+            {
+                <li class="products col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="product-img">
+                        <img style="height: 400px" src="@product.PictureUrl"/>
+                    </div>
+                    <div class="product-info">
+                        <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                            <div class="btn-group" role="group">
+                                <a href="@Url.Action("SelectedProduct", "DisplayProduct", new {id = product.Id})" class="product-button btn btn-primary">Select</a>
                             </div>
                         </div>
-                    </li>
-                }
-            </ul>
-        </div>
+                        <div class="product-title text-center">
+                            <h3 class="product-name">@product.Name</h3>
+                            <h4>Base Price: $@product.ListPrice</h4>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
     </div>
-
-}
+</div>
 
 
 @section Scripts {

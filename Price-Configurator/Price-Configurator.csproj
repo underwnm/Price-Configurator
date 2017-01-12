@@ -254,6 +254,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\CheckModel.cs" />
     <Compile Include="Models\Equipment.cs" />
     <Compile Include="Models\EquipmentGroup.cs" />
     <Compile Include="Models\EquipmentType.cs" />
@@ -297,6 +298,7 @@
     <Compile Include="ViewModels\ProductModelViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="ViewModels\RoleViewModel.cs" />
+    <Compile Include="ViewModels\SelectionViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -386,6 +388,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\DisplayProduct\Index.cshtml" />
+    <Content Include="Views\DisplayProduct\SelectedProduct.cshtml" />
+    <Content Include="Views\DisplayProduct\PriceQuote.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -19,7 +19,7 @@ namespace Price_Configurator.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-        private readonly ApplicationDbContext _context;
+        private ApplicationDbContext _context;
 
         public ManageController()
         {
@@ -1545,6 +1545,8 @@ namespace Price_Configurator.Controllers
             {
                 _userManager.Dispose();
                 _userManager = null;
+                _context.Dispose();
+                _context = null;
             }
 
             base.Dispose(disposing);
