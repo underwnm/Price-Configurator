@@ -114,9 +114,9 @@ namespace Price_Configurator.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            var roles = new UserRoleViewModel()
+            var roles = new UserRoleViewModel
             {
-                ApplicationUsers = _context.Users.ToList()
+                ApplicationUsers = _context.Users.ToList(),
             };
 
             return View(roles);

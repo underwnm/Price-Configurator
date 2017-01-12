@@ -6,5 +6,6 @@ namespace Price_Configurator.ViewModels
     public class UserRoleViewModel
     {
         public IEnumerable<ApplicationUser> ApplicationUsers { get; set; }
+
     }
 }

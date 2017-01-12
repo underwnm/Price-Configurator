@@ -9,7 +9,7 @@ namespace Price_Configurator.ViewModels
         public IEnumerable<IdentityRole> Roles { get; set; }
 
         [Required]
-        [Display(Name = "Name")]
+        [Display(Name = "Name*")]
         public string Name { get; set; }
     }
 }
