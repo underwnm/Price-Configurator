@@ -449,10 +449,10 @@ namespace Price_Configurator.Controllers
 
         private void PopulateProductCategoriesDropDownList(object selectedProductCategory = null)
         {
-            var categoriesQuery = from d in _context.ProductCategories
+            var query = from d in _context.ProductCategories
                                    orderby d.Name
                                    select d;
-            ViewBag.ProductCategoryId = new SelectList(categoriesQuery, "Id", "Name", selectedProductCategory);
+            ViewBag.ProductCategoryId = new SelectList(query, "Id", "Name", selectedProductCategory);
         }
 
         public ActionResult AddProductModel()
@@ -520,6 +520,58 @@ namespace Price_Configurator.Controllers
                 ProductModels = _context.ProductModels.ToList()
             };
             return View(model);
+        }
+
+        public ActionResult DeleteProduct(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var product = _context.Products.Find(id);
+            if (product == null)
+            {
+                return HttpNotFound();
+            }
+            _context.Products.Remove(product);
+            _context.SaveChanges();
+            return RedirectToAction("Products");
+        }
+
+        public ActionResult EditProduct(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var product = _context.Products.Find(id);
+            if (product == null)
+            {
+                return HttpNotFound();
+            }
+            PopulateProductsDropDownList(product.ProductModelId);
+            return View(product);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditProduct([Bind(Include = "Id,Name,ProductModelId,ProductModel")] Product product)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Entry(product).State = EntityState.Modified;
+                _context.SaveChanges();
+                return RedirectToAction("Products");
+            }
+            return View(product);
+        }
+
+        private void PopulateProductsDropDownList(object selectedProducts = null)
+        {
+            var query = from d in _context.ProductModels
+                                  orderby d.Name
+                                  select d;
+            ViewBag.ProductId = new SelectList(query, "Id", "Name", selectedProducts);
         }
 
         public ActionResult AddProduct()
