@@ -1,30 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Price_Configurator.Models;
+using Price_Configurator.ViewModels.Manage;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace Price_Configurator.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ApplicationDbContext _context;
+
+        public HomeController()
+        {
+            _context = new ApplicationDbContext();
+        }
         public ActionResult Index()
         {
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            var model = new NavBarViewModel
+            {
+                ProductCategories = _context.ProductCategories.ToList(),
+                ProductModels = _context.ProductModels.ToList()
+            };
+            return View(model);
         }
     }
 }
