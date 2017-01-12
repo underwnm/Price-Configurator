@@ -403,6 +403,58 @@ namespace Price_Configurator.Controllers
             return View(model);
         }
 
+        public ActionResult DeleteProductModel(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var productModel = _context.ProductModels.Find(id);
+            if (productModel == null)
+            {
+                return HttpNotFound();
+            }
+            _context.ProductModels.Remove(productModel);
+            _context.SaveChanges();
+            return RedirectToAction("ProductModels");
+        }
+
+        public ActionResult EditProductModel(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var productModels = _context.ProductModels.Find(id);
+            if (productModels == null)
+            {
+                return HttpNotFound();
+            }
+            PopulateProductCategoriesDropDownList(productModels.ProductCategoryId);
+            return View(productModels);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditProductModel([Bind(Include = "Id,Name,ProductCategoryId,ProductCategory")] ProductModel productModel)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Entry(productModel).State = EntityState.Modified;
+                _context.SaveChanges();
+                return RedirectToAction("ProductModels");
+            }
+            return View(productModel);
+        }
+
+        private void PopulateProductCategoriesDropDownList(object selectedProductCategory = null)
+        {
+            var categoriesQuery = from d in _context.ProductCategories
+                                   orderby d.Name
+                                   select d;
+            ViewBag.ProductCategoryId = new SelectList(categoriesQuery, "Id", "Name", selectedProductCategory);
+        }
+
         public ActionResult AddProductModel()
         {
             if (User.Identity.IsAuthenticated)

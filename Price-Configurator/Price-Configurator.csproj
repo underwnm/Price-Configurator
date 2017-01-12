@@ -365,6 +365,7 @@
     <Content Include="Views\Manage\EditRole.cshtml" />
     <Content Include="Views\Manage\EditUser.cshtml" />
     <Content Include="Views\Manage\EditProductCategory.cshtml" />
+    <Content Include="Views\Manage\EditProductModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
