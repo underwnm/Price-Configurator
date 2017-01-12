@@ -23,12 +23,12 @@
             <tr>
                 <td>@role.Name</td>
                 <td>@role.Description</td>
-                <td>$@role.ListPrice.Price</td>
+                <td>$@role.ListPrice</td>
                 <td>@role.EquipmentType.Name</td>
                 <td>@role.PictureUrl</td>
                 <td class="btn-group pull-right">
-                    <a href="#" class="btn btn-warning">Edit</a>
-                    <a href="#" class="btn btn-danger">Remove</a>
+                    <a href="@Url.Action("EditEquipment", "Manage", new { id = role.Id })" class="btn btn-warning">Edit</a>
+                    <a href="@Url.Action("DeleteEquipment", "Manage", new { id = role.Id })" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
         }

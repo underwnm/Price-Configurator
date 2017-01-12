@@ -16,6 +16,9 @@ namespace Price_Configurator.ViewModels
         [Display(Name = "Product Model")]
         public int ProductModelId { get; set; }
         public IEnumerable<ProductModel> ProductModels { get; set; }
+
+        [Required]
+        public decimal ListPrice { get; set; }
         
     }
 }

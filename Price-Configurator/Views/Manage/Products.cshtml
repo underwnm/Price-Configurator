@@ -11,6 +11,7 @@
         <tr>
             <th>Product</th>
             <th>Model</th>
+            <th>List Price</th>
             <th></th>
         </tr>
         </thead>
@@ -20,6 +21,7 @@
             <tr>
                 <td>@role.Name</td>
                 <td>@role.ProductModel.Name</td>
+                <td>$@role.ListPrice</td>
                 <td class="btn-group pull-right">
                     <a href="@Url.Action("EditProduct", "Manage", new { id = role.Id })" class="btn btn-warning">Edit</a>
                     <a href="@Url.Action("DeleteProduct", "Manage", new { id = role.Id })" class="btn btn-danger">Delete</a>

@@ -242,6 +242,10 @@
     <Compile Include="Migrations\201701111703083_Add name to equipment rule.Designer.cs">
       <DependentUpon>201701111703083_Add name to equipment rule.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701120408114_Remove ListPrice table.cs" />
+    <Compile Include="Migrations\201701120408114_Remove ListPrice table.Designer.cs">
+      <DependentUpon>201701120408114_Remove ListPrice table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -370,6 +374,7 @@
     <Content Include="Views\Manage\EditProductEquipment.cshtml" />
     <Content Include="Views\Manage\EditEquipmentGroup.cshtml" />
     <Content Include="Views\Manage\EditEquipmentType.cshtml" />
+    <Content Include="Views\Manage\EditEquipment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -424,6 +429,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701111703083_Add name to equipment rule.resx">
       <DependentUpon>201701111703083_Add name to equipment rule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701120408114_Remove ListPrice table.resx">
+      <DependentUpon>201701120408114_Remove ListPrice table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

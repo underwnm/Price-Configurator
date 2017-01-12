@@ -12,8 +12,7 @@ namespace Price_Configurator.Models
         public string Description { get; set; }
 
         [Required]
-        public int ListPriceId { get; set; }
-        public ListPrice ListPrice { get; set; }
+        public decimal ListPrice { get; set; }
 
         [Required]
         public int EquipmentTypeId { get; set; }

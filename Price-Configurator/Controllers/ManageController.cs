@@ -549,13 +549,13 @@ namespace Price_Configurator.Controllers
             {
                 return HttpNotFound();
             }
-            PopulateProductsDropDownList(product.ProductModelId);
+            PopulateProductModelsDropDownList(product.ProductModelId);
             return View(product);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditProduct([Bind(Include = "Id,Name,ProductModelId,ProductModel")] Product product)
+        public ActionResult EditProduct([Bind(Include = "Id,Name,ProductModelId,ProductModel,ListPrice")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -566,12 +566,12 @@ namespace Price_Configurator.Controllers
             return View(product);
         }
 
-        private void PopulateProductsDropDownList(object selectedProducts = null)
+        private void PopulateProductModelsDropDownList(object selected = null)
         {
             var query = from d in _context.ProductModels
                                   orderby d.Name
                                   select d;
-            ViewBag.ProductId = new SelectList(query, "Id", "Name", selectedProducts);
+            ViewBag.ProductModelId = new SelectList(query, "Id", "Name", selected);
         }
 
         public ActionResult AddProduct()
@@ -613,7 +613,8 @@ namespace Price_Configurator.Controllers
             var product = new Product
             {
                 Name = model.Name,
-                ProductModelId = model.ProductModelId
+                ProductModelId = model.ProductModelId,
+                ListPrice = model.ListPrice
             };
             _context.Products.Add(product);
             _context.SaveChanges();
@@ -1066,9 +1067,60 @@ namespace Price_Configurator.Controllers
             {
                 CurrentEquipment = _context.Equipments.ToList(),
                 EquipmentTypes = _context.EquipmentTypes.ToList(),
-                ListPrices = _context.ListPrices.ToList()
             };
             return View(model);
+        }
+
+        public ActionResult DeleteEquipment(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var equipment = _context.Equipments.Find(id);
+            if (equipment == null)
+            {
+                return HttpNotFound();
+            }
+            _context.Equipments.Remove(equipment);
+            _context.SaveChanges();
+            return RedirectToAction("Equipment");
+        }
+
+        public ActionResult EditEquipment(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var equipment = _context.Equipments.Find(id);
+            if (equipment == null)
+            {
+                return HttpNotFound();
+            }
+            PopulateEquipmentDropDownList(equipment.EquipmentTypeId);
+            return View(equipment);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditEquipment([Bind(Include = "Id,Name,Description,EquipmentTypeId,EquipmentType,ListPrice,ListPriceId,PictureUrl")] Equipment equipment)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Entry(equipment).State = EntityState.Modified;
+                _context.SaveChanges();
+                return RedirectToAction("Equipment");
+            }
+            return View(equipment);
+        }
+
+        private void PopulateEquipmentDropDownList(object selected = null)
+        {
+            var query = from d in _context.EquipmentTypes
+                        orderby d.Name
+                        select d;
+            ViewBag.EquipmentTypeId = new SelectList(query, "Id", "Name", selected);
         }
 
         public ActionResult AddEquipment()
@@ -1106,28 +1158,20 @@ namespace Price_Configurator.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
+
             if (model.ListPrice != null)
             {
-                var listPrice = new ListPrice
+                var equipment = new Equipment
                 {
-                    Price = (decimal) model.ListPrice
+                    Name = model.Name,
+                    Description = model.Description,
+                    ListPrice = (decimal) model.ListPrice,
+                    EquipmentTypeId = model.EquipmentTypeId,
+                    PictureUrl = model.PictureUrl
                 };
 
-                _context.ListPrices.Add(listPrice);
-
-                model.ListPriceId = listPrice.Id;
+                _context.Equipments.Add(equipment);
             }
-
-            var equipment = new Equipment
-            {
-                Name = model.Name,
-                Description = model.Description,
-                ListPriceId = model.ListPriceId,
-                EquipmentTypeId = model.EquipmentTypeId,
-                PictureUrl = model.PictureUrl
-            };
-
-            _context.Equipments.Add(equipment);
             _context.SaveChanges();
             return RedirectToAction("Equipment");
         }

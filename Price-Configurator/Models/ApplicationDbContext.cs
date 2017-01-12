@@ -9,7 +9,6 @@ namespace Price_Configurator.Models
     {
         public DbSet<EquipmentGroup> EquipmentGroups { get; set; }
         public DbSet<EquipmentType> EquipmentTypes { get; set; }
-        public DbSet<ListPrice> ListPrices { get; set; }
         public DbSet<Equipment> Equipments { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }
         public DbSet<ProductModel> ProductModels { get; set; }
@@ -72,11 +71,6 @@ namespace Price_Configurator.Models
 
             modelBuilder.Entity<Equipment>()
                 .HasRequired(t => t.EquipmentType)
-                .WithMany()
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Equipment>()
-                .HasRequired(p => p.ListPrice)
                 .WithMany()
                 .WillCascadeOnDelete(false);
 

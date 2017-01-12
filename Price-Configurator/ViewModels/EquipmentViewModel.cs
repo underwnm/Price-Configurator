@@ -19,9 +19,6 @@ namespace Price_Configurator.ViewModels
         [Display(Name = "List Price*")]
         public decimal? ListPrice { get; set; }
 
-        public int ListPriceId { get; set; }
-        public IEnumerable<ListPrice> ListPrices { get; set; }
-
         [Required]
         [Display(Name = "Equipment Type*")]
         public int EquipmentTypeId { get; set; }

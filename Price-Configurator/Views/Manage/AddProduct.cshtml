@@ -29,6 +29,13 @@
                 </div>
             </div>
             <div class="form-group">
+                @Html.LabelFor(m => m.ListPrice, new { @class = "col-lg-2 control-label" })
+                <div class="col-lg-10">
+                    @Html.TextBoxFor(m => m.ListPrice, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.ListPrice)
+                </div>
+            </div>
+            <div class="form-group">
                 <div class="col-lg-10 col-lg-offset-2">
                     <button type="reset" class="btn btn-danger">Clear</button>
                     <button type="submit" class="btn btn-primary">Save</button>

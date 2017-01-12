@@ -12,5 +12,8 @@ namespace Price_Configurator.Models
         [Required]
         public int ProductModelId { get; set; }
         public ProductModel ProductModel { get; set; }
+
+        [Required]
+        public decimal ListPrice { get; set; }
     }
 }

@@ -33,7 +33,7 @@
         <div class="form-group">
             <label class="control-label col-md-2">Equipment Group</label>
             <div class="col-md-10">
-                @Html.DropDownList("EquipmentGroupId", null, new { @class = "form-control" })
+                @Html.DropDownList("EquipmentGroupId", null, "",new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.EquipmentGroupId)
             </div>
         </div>
@@ -46,7 +46,7 @@
     </div>
 }
 
-<a href="@Url.Action("EquipmentTypes", "Manage")" class="btn btn-default">Back</a>
+<a href="@Url.Action("Equipment", "Manage")" class="btn btn-default">Back</a>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
