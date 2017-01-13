@@ -1,4 +1,5 @@
-﻿using Price_Configurator.Models;
+﻿using Microsoft.AspNet.Identity;
+using Price_Configurator.Models;
 using Price_Configurator.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
@@ -147,7 +148,14 @@ namespace Price_Configurator.Controllers
             {
                 if (selected[i].Checked == false) continue;
 
-                
+                var priceQuote = new PriceQuote
+                {
+                    ApplicationUserId = User.Identity.GetUserId(),
+                    EquipmentId = selected[i].Id,
+                    Name = selected[i].Name,
+                    Description = selected[i].Description,
+                    ListPrice = selected[i].Price
+                };
             }
             return RedirectToAction("PriceQuote");
         }

@@ -255,6 +255,10 @@
     <Compile Include="Migrations\201701130003432_Add PriceQuotes.Designer.cs">
       <DependentUpon>201701130003432_Add PriceQuotes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701130008485_Update Price Quote Table.cs" />
+    <Compile Include="Migrations\201701130008485_Update Price Quote Table.Designer.cs">
+      <DependentUpon>201701130008485_Update Price Quote Table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -460,6 +464,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701130003432_Add PriceQuotes.resx">
       <DependentUpon>201701130003432_Add PriceQuotes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701130008485_Update Price Quote Table.resx">
+      <DependentUpon>201701130008485_Update Price Quote Table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

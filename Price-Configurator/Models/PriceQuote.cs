@@ -21,9 +21,7 @@ namespace Price_Configurator.Models
         public decimal ListPrice { get; set; }
 
         [Required]
-        public int EquipmentTypeId { get; set; }
-        public EquipmentType EquipmentType { get; set; }
-
-        public string PictureUrl { get; set; }
+        public int ProductId { get; set; }
+        public Product Product { get; set; }
     }
 }
