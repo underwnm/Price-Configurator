@@ -41,9 +41,7 @@ textarea { max-width: 280px; }
     position: relative;
 }
 
-.product-button {
-    opacity: .75;
-}
+.product-button { opacity: .75; }
 
 .product-img {
     position: relative;
