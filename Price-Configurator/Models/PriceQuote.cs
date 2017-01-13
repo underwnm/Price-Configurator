@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Price_Configurator.Models
 {
@@ -9,19 +11,15 @@ namespace Price_Configurator.Models
         [Required]
         public string ApplicationUserId { get; set; }
 
-        [Required]
-        public int EquipmentId { get; set; }
-
-        [Required]
-        public string Name { get; set; }
-
-        public string Description { get; set; }
-
-        [Required]
-        public decimal ListPrice { get; set; }
+        public List<CheckModel> SelectedEquipment { get; set; }
 
         [Required]
         public int ProductId { get; set; }
         public Product Product { get; set; }
+
+        public decimal TotalPrice { get; set; }
+
+        [Required]
+        public DateTime DateCreated { get; set; }
     }
 }

@@ -8,7 +8,7 @@
         <div class="text-center col-xs-12">
             <h2>@Model.Product.Name</h2>
             <div class="product-img">
-                <img class="img-responsive center-block" src="@Model.Product.PictureUrl" />
+                <img class="img-responsive center-block" src="@Model.Product.PictureUrl"/>
             </div>
             <div class="product-info">
                 <div class="product-title text-center">
@@ -37,6 +37,10 @@
                     </td>
                     <td>
                         @Html.HiddenFor(it => it.CheckModels[i].Id)
+                        @Html.HiddenFor(it => it.CheckModels[i].ProductId)
+                        @Html.HiddenFor(it => it.CheckModels[i].Description)
+                        @Html.HiddenFor(it => it.CheckModels[i].Name)
+                        @Html.HiddenFor(it => it.CheckModels[i].Price)
                         Price: $@Html.DisplayFor(it => it.CheckModels[i].Price) -
                         @Html.DisplayFor(it => it.CheckModels[i].Name)
                     </td>

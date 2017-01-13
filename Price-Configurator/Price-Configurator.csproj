@@ -259,6 +259,22 @@
     <Compile Include="Migrations\201701130008485_Update Price Quote Table.Designer.cs">
       <DependentUpon>201701130008485_Update Price Quote Table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701130222017_Refactor Price Quote table.cs" />
+    <Compile Include="Migrations\201701130222017_Refactor Price Quote table.Designer.cs">
+      <DependentUpon>201701130222017_Refactor Price Quote table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701130228348_Refactor price quote.cs" />
+    <Compile Include="Migrations\201701130228348_Refactor price quote.Designer.cs">
+      <DependentUpon>201701130228348_Refactor price quote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701130247137_Add totalprice to Price Quote.cs" />
+    <Compile Include="Migrations\201701130247137_Add totalprice to Price Quote.Designer.cs">
+      <DependentUpon>201701130247137_Add totalprice to Price Quote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701130301144_Add datetime to price quote.cs" />
+    <Compile Include="Migrations\201701130301144_Add datetime to price quote.Designer.cs">
+      <DependentUpon>201701130301144_Add datetime to price quote.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -301,6 +317,7 @@
     <Compile Include="ViewModels\Manage\NavBarViewModel.cs" />
     <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
+    <Compile Include="ViewModels\PriceQuoteViewModel.cs" />
     <Compile Include="ViewModels\ProductCategoryViewModel.cs" />
     <Compile Include="ViewModels\ProductEquipmentRuleViewModel.cs" />
     <Compile Include="ViewModels\ProductEquipmentViewModel.cs" />
@@ -467,6 +484,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701130008485_Update Price Quote Table.resx">
       <DependentUpon>201701130008485_Update Price Quote Table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701130222017_Refactor Price Quote table.resx">
+      <DependentUpon>201701130222017_Refactor Price Quote table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701130228348_Refactor price quote.resx">
+      <DependentUpon>201701130228348_Refactor price quote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701130247137_Add totalprice to Price Quote.resx">
+      <DependentUpon>201701130247137_Add totalprice to Price Quote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701130301144_Add datetime to price quote.resx">
+      <DependentUpon>201701130301144_Add datetime to price quote.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

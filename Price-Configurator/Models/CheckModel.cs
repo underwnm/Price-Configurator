@@ -11,5 +11,7 @@
         public decimal Price { get; set; }
 
         public bool Checked { get; set; }
+
+        public int ProductId { get; set; }
     }
 }

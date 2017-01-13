@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNet.Identity;
 using Price_Configurator.Models;
 using Price_Configurator.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 
 namespace Price_Configurator.Controllers
 {
@@ -74,7 +76,8 @@ namespace Price_Configurator.Controllers
                     Id = equipmentList[index].Id,
                     Name = equipmentList[index].Name,
                     Price = equipmentList[index].ListPrice,
-                    Checked = false
+                    Checked = false,
+                    ProductId = product.Id
                 };
 
                 checkboxList.Add(checkModel);
@@ -85,13 +88,13 @@ namespace Price_Configurator.Controllers
             {
                 var optional = new List<Equipment>();
 
-                for (var i = 0; i < equipmentList.Count; i++)
+                foreach (var equipment in equipmentList)
                 {
-                    var equipmentType = FindEquipmentType(equipmentList[i].EquipmentTypeId);
+                    var equipmentType = FindEquipmentType(equipment.EquipmentTypeId);
                     if (!equipmentType.Name.Contains("Optional") ||
                         equipmentType.EquipmentGroupId == null) continue;
 
-                    optional.Add(equipmentList[i]);
+                    optional.Add(equipment);
                 }
 
                 if (optional.Count <= 0) continue;
@@ -144,23 +147,80 @@ namespace Price_Configurator.Controllers
         public ActionResult SelectedProduct(SelectionViewModel model)
         {
             var selected = model.CheckModels;
-            for (int i = 0; i < selected.Count; i++)
+            decimal totalPrice = 0;
+            var priceQuote = new PriceQuote
             {
-                if (selected[i].Checked == false) continue;
+                ApplicationUserId = User.Identity.GetUserId(),
+                ProductId = selected[0].ProductId,
+                SelectedEquipment = new List<CheckModel>(),
+                DateCreated = DateTime.Now
+            };
 
-                var priceQuote = new PriceQuote
-                {
-                    ApplicationUserId = User.Identity.GetUserId(),
-                    EquipmentId = selected[i].Id,
-                    Name = selected[i].Name,
-                    Description = selected[i].Description,
-                    ListPrice = selected[i].Price
-                };
+            var productId = selected[0].ProductId;
+            var product = _context.Products
+                .Where(it => it.Id == productId)
+                .Select(it => it.ListPrice)
+                .SingleOrDefault();
+
+            totalPrice += product;
+            foreach (var equipment in selected)
+            {
+                if (equipment.Checked == false) continue;
+
+                priceQuote.SelectedEquipment.Add(equipment);
+                totalPrice += equipment.Price;
             }
+
+            priceQuote.TotalPrice = totalPrice;
+            _context.PriceQuotes.Add(priceQuote);
+            _context.SaveChanges();
+
+            TempData["selectedEquipment"] = model.CheckModels;
+            TempData["selectedProduct"] = productId;
             return RedirectToAction("PriceQuote");
         }
 
+        [HttpGet]
         public ActionResult PriceQuote()
+        {
+            var equipments = (List<CheckModel>)TempData["selectedEquipment"];
+            var productId = (int)TempData["selectedProduct"];
+            var user = User.Identity.GetUserId();
+            var priceQuote = _context.PriceQuotes
+                .Where(x => x.ApplicationUserId == user)
+                .OrderByDescending(x => x.DateCreated)
+                .FirstOrDefault();
+            var product = _context.Products
+                .Where(it => it.Id == productId)
+                .Select(it => it)
+                .Single();
+
+            var selectedEquipment = new List<CheckModel>();
+            foreach (var equipment in equipments)
+            {
+                if (equipment.Checked == false) continue;
+
+                selectedEquipment.Add(equipment);
+            }
+
+            var priceModel = new PriceQuoteViewModel
+            {
+                TotalPrice = priceQuote.TotalPrice,
+                SelectedEquipment = selectedEquipment,
+                Product = product
+                
+            };
+
+            return View(priceModel);
+        }
+
+        [HttpPost]
+        public ActionResult PriceQuote(PriceQuoteViewModel model)
+        {
+            return RedirectToAction("SubmitQuote");
+        }
+
+        public ActionResult SubmitQuote()
         {
             return View();
         }
