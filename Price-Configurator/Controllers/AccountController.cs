@@ -139,8 +139,12 @@ namespace Price_Configurator.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            ViewBag.Name = new SelectList(_context.Roles.Select(u => u.Name).ToList());
-            return View();
+            var model = new RegisterViewModel
+            {
+                Roles = _context.Roles.ToList()
+            };
+
+            return View(model);
         }
 
         //
@@ -163,7 +167,7 @@ namespace Price_Configurator.Controllers
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-                    await UserManager.AddToRoleAsync(user.Id, model.UserRoles);
+                    await UserManager.AddToRoleAsync(user.Id, model.RoleId);
 
                     return RedirectToAction("Index", "Manage");
                 }

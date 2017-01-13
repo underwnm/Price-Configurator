@@ -3,7 +3,7 @@
     ViewBag.Title = "Users";
 }
 
-<h2 class="text-center">Manage User Roles</h2>
+<h2 class="text-center">Manage Users</h2>
 
 <div class="span12">
     <table class="table table-striped table-responsive">
@@ -23,7 +23,14 @@
                 <td>@role.UserName</td>
                 <td>@role.Email</td>
                 <td>@role.PhoneNumber</td>
-                <td>Admin</td>
+                @if (@role.UserName == "underwnm")
+                {
+                    <td>Dealer</td>
+                }
+                else
+                {
+                    <td>Admin</td>
+                }
                 <td class="btn-group pull-right">
                     <a href="@Url.Action("EditUser", "Manage", new { id = role.Id })" class="btn btn-warning">Edit</a>
                     <a href="@Url.Action("DeleteUser", "Manage", new { id = role.Id })" class="btn btn-danger">Delete</a>

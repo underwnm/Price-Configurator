@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Price_Configurator.ViewModels.Account
 {
@@ -31,6 +33,7 @@ namespace Price_Configurator.ViewModels.Account
 
         [Required]
         [Display(Name = "User Role*")]
-        public string UserRoles { get; set; }
+        public string RoleId { get; set; }
+        public IEnumerable<IdentityRole> Roles { get; set; }
     }
 }

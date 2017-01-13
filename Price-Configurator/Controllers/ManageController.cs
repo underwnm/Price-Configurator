@@ -532,6 +532,16 @@ namespace Price_Configurator.Controllers
             {
                 return HttpNotFound();
             }
+            var priceQuotes = _context.PriceQuotes
+                .Where(x => x.ProductId == product.Id)
+                .Select(x => x)
+                .ToList();
+
+            foreach (var priceQuote in priceQuotes)
+            {
+                _context.PriceQuotes.Remove(priceQuote);
+            }
+
             _context.Products.Remove(product);
             _context.SaveChanges();
             return RedirectToAction("Products");
