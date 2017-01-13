@@ -142,6 +142,13 @@ namespace Price_Configurator.Controllers
         [HttpPost]
         public ActionResult SelectedProduct(SelectionViewModel model)
         {
+            var selected = model.CheckModels;
+            for (int i = 0; i < selected.Count; i++)
+            {
+                if (selected[i].Checked == false) continue;
+
+                
+            }
             return RedirectToAction("PriceQuote");
         }
 

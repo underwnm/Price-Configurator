@@ -17,15 +17,15 @@
             </div>
         </div>
         
-        @for (int i = 0; i < Model.RadioList.Count; i++)
-        {
-            @Model.RadioList[i].Description
-            @Html.HiddenFor(it => it.RadioList[i].Id)
-            @Html.RadioButtonFor(it => it.RadioList[i].Checked, Model.RadioList[i].Description)
-            @Model.RadioList[i].Name
-
-            <br/>
-        }
+@*        @for (int i = 0; i < Model.RadioList.Count; i++)*@
+@*        {*@
+@*            @Model.RadioList[i].Description*@
+@*            @Html.HiddenFor(it => it.RadioList[i].Id)*@
+@*            @Html.RadioButtonFor(it => it.RadioList[i].Checked, Model.RadioList[i].Description)*@
+@*            @Model.RadioList[i].Name*@
+@**@
+@*            <br/>*@
+@*        }*@
 
         <h4>Additional Optional Equipment</h4>
         @for (var i = 0; i < Model.CheckModels.Count; i++)

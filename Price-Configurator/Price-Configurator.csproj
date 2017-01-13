@@ -251,6 +251,10 @@
     <Compile Include="Migrations\201701121602384_Product picture.Designer.cs">
       <DependentUpon>201701121602384_Product picture.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701130003432_Add PriceQuotes.cs" />
+    <Compile Include="Migrations\201701130003432_Add PriceQuotes.Designer.cs">
+      <DependentUpon>201701130003432_Add PriceQuotes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -259,6 +263,7 @@
     <Compile Include="Models\EquipmentGroup.cs" />
     <Compile Include="Models\EquipmentType.cs" />
     <Compile Include="Models\ListPrice.cs" />
+    <Compile Include="Models\PriceQuote.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductCategory.cs" />
     <Compile Include="Models\ProductEquipment.cs" />
@@ -452,6 +457,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701121602384_Product picture.resx">
       <DependentUpon>201701121602384_Product picture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701130003432_Add PriceQuotes.resx">
+      <DependentUpon>201701130003432_Add PriceQuotes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

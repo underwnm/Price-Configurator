@@ -16,6 +16,8 @@ namespace Price_Configurator.Models
         public DbSet<ProductEquipment> ProductsEquipment { get; set; }
         public DbSet<EquipmentRule> EquipmentRules { get; set; }
         public DbSet<ProductEquipmentRule> ProductEquipmentRules { get; set; }
+        public DbSet<CheckModel> CheckModels { get; set; }
+        public DbSet<PriceQuote> PriceQuotes { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
