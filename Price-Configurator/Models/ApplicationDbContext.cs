@@ -81,6 +81,11 @@ namespace Price_Configurator.Models
                 .WithMany()
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<PriceQuote>()
+                .HasRequired(x => x.Product)
+                .WithMany()
+                .WillCascadeOnDelete(false);
+
             base.OnModelCreating(modelBuilder);
         }
     }

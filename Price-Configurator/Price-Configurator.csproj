@@ -275,6 +275,14 @@
     <Compile Include="Migrations\201701130301144_Add datetime to price quote.Designer.cs">
       <DependentUpon>201701130301144_Add datetime to price quote.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701131337122_Update modelbuilder.cs" />
+    <Compile Include="Migrations\201701131337122_Update modelbuilder.Designer.cs">
+      <DependentUpon>201701131337122_Update modelbuilder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701131352145_Update modelbuilder again.cs" />
+    <Compile Include="Migrations\201701131352145_Update modelbuilder again.Designer.cs">
+      <DependentUpon>201701131352145_Update modelbuilder again.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -496,6 +504,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701130301144_Add datetime to price quote.resx">
       <DependentUpon>201701130301144_Add datetime to price quote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701131337122_Update modelbuilder.resx">
+      <DependentUpon>201701131337122_Update modelbuilder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701131352145_Update modelbuilder again.resx">
+      <DependentUpon>201701131352145_Update modelbuilder again.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

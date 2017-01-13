@@ -13,5 +13,7 @@
         public bool Checked { get; set; }
 
         public int ProductId { get; set; }
+
+        public int PriceQuoteId { get; set; }
     }
 }
